@@ -2,1155 +2,345 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Gilded Room — Premium Salon &amp; Colour</title>
-<meta name="description" content="The Gilded Room: senior colourists, balayage, colour correction and precision cutting. Book your chair online in seconds.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gilded Room — Colour Specialists, Sheffield</title>
+<meta name="description" content="Colour-led hair salon in Sheffield. Balayage, colour correction and precision cutting. Book online, deposit secured, patch test tracked.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-THE GILDED ROOM — "Obsidian & Gold" theme: dark, masculine, premium.
-============================================================ */
-:root{
---gold:#c9a227; --gold-dark:#a8861f; --gold-soft:#e3c55e;
---bg:#2a1826; --bg-alt:#351f30; --card:#3e2438; --card2:#4a2c43;
---ink:#f5edea; --slate:#d8c4d0; --muted:#a08c9a; --line:#543a4c;
---ok:#4caf7d; --danger:#e0625a;
---radius:14px;
---shadow:0 1px 3px rgba(0,0,0,.4),0 20px 44px -12px rgba(0,0,0,.55);
---serif:'Playfair Display',Georgia,serif;
---sans:'Inter',ui-sans-serif,system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:var(--gold);text-decoration:none}
-h1,h2,h3{font-family:var(--serif);letter-spacing:-.01em;font-weight:700;color:#fff}
-.container{max-width:1140px;margin:0 auto;padding:0 22px}
-.hidden{display:none !important}
-::selection{background:var(--gold);color:#0b0b0d}
-
-/* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:8px;
-padding:13px 24px;font:inherit;font-weight:700;font-size:14.5px;cursor:pointer;transition:.2s;letter-spacing:.02em}
-.btn.primary{background:var(--gold);color:#171308;box-shadow:0 10px 24px -10px rgba(212,175,55,.55)}
-.btn.primary:hover{background:var(--gold-soft);transform:translateY(-1px)}
-.btn.primary:disabled{background:#4a4638;color:#8c877c;box-shadow:none;cursor:not-allowed;transform:none}
-.btn.ghost{background:transparent;border:1.5px solid #3a3a41;color:var(--slate)}
-.btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
-.btn.big{padding:16px 30px;font-size:15.5px}
-.link-danger{background:none;border:none;color:var(--danger);font-weight:600;cursor:pointer;font:inherit}
-
-/* ---------- header ---------- */
-#hdr{position:sticky;top:0;z-index:30;background:rgba(11,11,13,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
-.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:800;font-size:19px;letter-spacing:.03em;color:#fff}
-.brand .logo{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);
-display:grid;place-items:center;color:var(--gold);font-size:17px;flex:0 0 auto;font-family:var(--serif)}
-.navlinks{display:flex;gap:2px}
-.navlinks a{color:var(--slate);font-weight:600;font-size:13.5px;padding:8px 13px;border-radius:8px;letter-spacing:.02em}
-.navlinks a:hover{color:var(--gold);background:rgba(212,175,55,.08)}
-.nav-cta{display:flex;align-items:center;gap:14px}
-.nav-cta .call{font-weight:700;font-size:13.5px;color:var(--slate);white-space:nowrap}
-.nav-cta .call:hover{color:var(--gold)}
-@media(max-width:940px){.navlinks{display:none}}
-@media(max-width:560px){.nav-cta .call{display:none}}
-
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);min-height:640px;display:flex;align-items:center}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.4) saturate(1.05)}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.55) 0%,rgba(11,11,13,.35) 45%,rgba(11,11,13,.92) 100%)}
-.hero-inner{position:relative;z-index:1;padding:90px 0 80px;text-align:center;max-width:760px;margin:0 auto}
-.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,175,55,.5);
-border-radius:999px;padding:7px 16px;font-size:12px;color:var(--gold-soft);font-weight:700;margin-bottom:22px;letter-spacing:.12em;text-transform:uppercase}
-.pill::before{content:"●";font-size:8px;color:var(--gold)}
-.hero h1{font-size:clamp(2.3rem,5.2vw,3.7rem);font-weight:800;line-height:1.12;margin:0 0 18px}
-.hero h1 .accent{color:var(--gold)}
-.hero .sub{font-size:17px;color:var(--slate);max-width:540px;margin:0 auto 32px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.trust{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:26px;font-size:14px;color:var(--slate);font-weight:600}
-.trust .stars{color:var(--gold);letter-spacing:2px}
-
-/* ---------- stats band ---------- */
-.stats-band{background:var(--bg-alt);border-bottom:1px solid var(--line)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:44px 0;text-align:center}
-.stats .stat b{display:block;font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--gold);font-weight:800}
-.stats .stat span{font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
-
-/* ---------- sections ---------- */
-.section{padding:76px 0 8px}
-.sec-head{max-width:640px;margin:0 auto 42px;text-align:center}
-.kicker{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);font-weight:800;margin:0}
-.sec-head .lead{color:var(--muted);font-size:15px;margin:12px 0 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-.card.pad{padding:24px}
-
-/* ---------- services ---------- */
-.svc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.card.svc{padding:26px;text-align:left;position:relative;transition:.2s}
-.card.svc:hover{border-color:rgba(212,175,55,.4);transform:translateY(-2px)}
-.card.svc.popular{border-color:var(--gold)}
-.card.svc .pop-badge{position:absolute;top:-11px;right:20px;background:var(--gold);color:#171308;font-size:11px;font-weight:800;
-padding:4px 12px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
-.card.svc .svc-ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;
-background:rgba(212,175,55,.1);font-size:21px;border:1px solid rgba(212,175,55,.25)}
-.card.svc h3{margin:0 0 7px;font-size:17px;font-weight:700;color:#fff}
-.card.svc p{margin:0 0 16px;font-size:13.5px;color:var(--muted);min-height:40px}
-.card.svc .meta{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;margin-bottom:14px;
-border-top:1px solid var(--line);padding-top:14px}
-.card.svc .dur{color:var(--muted)} .card.svc .price{font-weight:800;color:var(--gold);font-size:16px}
-.book-link{font-weight:700;font-size:13.5px;display:block;text-align:center;padding:10px;border:1.5px solid var(--line);border-radius:8px;color:var(--slate)}
-.book-link:hover{border-color:var(--gold);color:var(--gold)}
-
-/* ---------- booking wizard ---------- */
-.booking{margin:30px auto 0;position:relative;overflow:hidden;scroll-margin-top:88px}
-.steps{display:flex;gap:6px;padding:20px 26px;border-bottom:1px solid var(--line);flex-wrap:wrap;background:var(--bg-alt)}
-.step{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);font-weight:600}
-.step .dot{width:23px;height:23px;border-radius:50%;background:#2a2a2f;color:var(--muted);display:grid;place-items:center;font-size:12px;transition:.2s}
-.step.active{color:var(--gold)} .step.active .dot{background:var(--gold);color:#171308}
-.step.done .dot{background:var(--ok);color:#0b0b0d}
-.step .sep{width:20px;height:1px;background:var(--line)}
-.panel{padding:28px 26px 30px}
-.panel h2{margin:0 0 4px;font-size:22px;font-weight:800;color:#fff}
-.panel .sub{color:var(--muted);font-size:14px;margin:0 0 22px}
-.actions{display:flex;justify-content:space-between;margin-top:24px;gap:10px}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:12px}
-.choice{position:relative;border:1.5px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:.15s;background:var(--card2)}
-.choice:hover{border-color:var(--gold);transform:translateY(-1px)}
-.choice.sel{border-color:var(--gold);background:rgba(212,175,55,.08)}
-.choice.sel::after{content:"✓";position:absolute;top:10px;right:12px;width:20px;height:20px;border-radius:50%;
-background:var(--gold);color:#171308;font-size:12px;display:grid;place-items:center;font-weight:800}
-.choice h3{margin:0 0 4px;font-size:15px;font-weight:700;padding-right:22px;color:#fff}
-.choice p{margin:0;font-size:13px;color:var(--muted)}
-.choice .meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:13px}
-.choice .dur{color:var(--muted)} .choice .price{font-weight:700;color:var(--gold)}
-.choice .go{display:none;width:100%;margin-top:14px;justify-content:center}
-@media(max-width:700px){.choice.sel .go{display:inline-flex}}
-.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:15px;flex:0 0 auto;object-fit:cover}
-.choice.person{display:flex;align-items:center;gap:12px}
-.choice.person h3{padding-right:0}
-.choice.person p{font-size:12.5px;color:var(--muted)}
-
-.datestrip{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:20px;scrollbar-width:thin}
-.day{flex:0 0 74px;text-align:center;border:1.5px solid var(--line);border-radius:12px;padding:10px 4px;cursor:pointer;background:var(--card2);transition:.15s}
-.day:hover{border-color:var(--gold)}
-.day.sel{border-color:var(--gold);background:rgba(212,175,55,.1)}
-.day.off{opacity:.4;cursor:not-allowed}
-.day .dw{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.day .dn{font-size:19px;font-weight:800;margin:2px 0;color:#fff}
-.day .cnt{font-size:11px;font-weight:600;color:var(--ok)}
-.day.off .cnt{color:var(--muted)}
-.day.sel .dw,.day.sel .dn{color:var(--gold)}
-.strip-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.strip-nav .label{font-weight:700;font-size:15px;color:#fff}
-.iconbtn{border:1px solid var(--line);width:34px;height:34px;display:grid;place-items:center;background:var(--card2);border-radius:10px;cursor:pointer;font-size:16px;color:var(--slate)}
-.iconbtn:hover{border-color:var(--gold);color:var(--gold)}
-
-.period{margin-bottom:18px}
-.period h4{margin:0 0 8px;font-size:12.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
-.slot{padding:10px 0;text-align:center;border:1.5px solid var(--line);border-radius:10px;background:var(--card2);cursor:pointer;font-weight:600;font-size:14px;transition:.12s;color:var(--slate)}
-.slot:hover{border-color:var(--gold);color:var(--gold)}
-.slot.sel{background:var(--gold);border-color:var(--gold);color:#171308}
-.empty{color:var(--muted);font-size:14px;padding:14px 0}
-.waitbox{border:1.5px dashed var(--line);border-radius:12px;padding:20px;text-align:center;background:var(--bg-alt)}
-.waitbox p{margin:0 0 12px;color:var(--slate);font-size:14px}
-
-.field{margin-bottom:15px}
-.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--slate)}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-input[type=date],input[type=time],select,input[type=text],input[type=email],input[type=tel],input[type=password],textarea{
-font:inherit;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;background:var(--card2);color:var(--ink);width:100%}
-input::placeholder,textarea::placeholder{color:#6b665c}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.15)}
-input.invalid,textarea.invalid,select.invalid{border-color:var(--danger)}
-
-.summary{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;padding:18px;font-size:14px;margin-bottom:16px}
-.summary div{display:flex;justify-content:space-between;gap:14px;padding:6px 0}
-.summary .k{color:var(--muted)} .summary .v{font-weight:600;text-align:right;color:#fff}
-.notice{padding:12px 15px;border-radius:10px;font-size:14px;margin-top:12px}
-.notice.err{background:rgba(224,98,90,.12);color:#f19a94;border:1px solid rgba(224,98,90,.35)}
-.notice.info{background:rgba(212,175,55,.1);color:var(--gold-soft);border:1px solid rgba(212,175,55,.3)}
-.confirm{text-align:center}
-.confirm .tick{width:66px;height:66px;border-radius:50%;background:rgba(76,175,125,.14);color:var(--ok);
-display:grid;place-items:center;margin:0 auto 18px;font-size:28px}
-.refbox{font-size:27px;font-weight:800;letter-spacing:.08em;background:var(--bg-alt);border:1.5px dashed var(--gold);color:var(--gold);
-border-radius:12px;padding:16px;text-align:center;margin:16px 0 4px}
-.hint{font-size:12.5px;color:var(--muted);text-align:center;margin:0 0 20px}
-.confirm-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
-
-/* ---------- team ---------- */
-.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card.member{padding:26px;text-align:center}
-.card.member .photo{width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0 auto 16px;display:block;
-border:2px solid var(--gold)}
-.card.member h3{margin:0 0 3px;font-size:18px;font-weight:700;color:#fff}
-.card.member .role{font-size:13px;color:var(--gold);font-weight:600;letter-spacing:.02em}
-.card.member .creds{display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;color:var(--muted);
-background:var(--bg-alt);border:1px solid var(--line);padding:4px 12px;border-radius:999px}
-.card.member .bio{font-size:13.5px;color:var(--slate);margin:14px 0 0}
-
-/* ---------- gallery ---------- */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:10px}
-.gallery figure{margin:0;border-radius:10px;overflow:hidden;cursor:pointer;position:relative}
-.gallery figure:nth-child(1){grid-column:span 2;grid-row:span 2}
-.gallery figure:nth-child(4){grid-row:span 2}
-.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}
-.gallery figure:hover img{transform:scale(1.06);filter:brightness(.8)}
-@media(max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}.gallery figure:nth-child(1){grid-column:span 2}}
-
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:60;display:grid;place-items:center;padding:30px}
-.lightbox img{max-width:100%;max-height:85vh;border-radius:10px}
-.lightbox .lb-close{position:absolute;top:22px;right:26px;color:#fff;font-size:30px;cursor:pointer;line-height:1}
-
-/* ---------- reviews ---------- */
-.rev-head{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1140px;margin:0 auto 34px;flex-wrap:wrap}
-.rev-score{display:flex;align-items:center;gap:16px}
-.rev-score .n{font-family:var(--serif);font-size:42px;font-weight:800;color:var(--gold)}
-.rev-score .gl{font-size:13px;color:var(--muted)}
-.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
-.card.review{padding:22px}
-.card.review .stars{color:var(--gold);letter-spacing:2px;margin-bottom:12px;font-size:15px}
-.card.review p{margin:0 0 14px;font-size:14.5px;color:var(--slate)}
-.card.review .who{font-size:13px;color:var(--muted);font-weight:600}
-
-/* ---------- why-us band ---------- */
-.why-band{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:64px 0;text-align:center}
-.why-grid .wi .ic{width:52px;height:52px;border-radius:50%;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);
-display:grid;place-items:center;margin:0 auto 16px;font-size:22px}
-.why-grid .wi h3{font-size:16.5px;margin:0 0 8px;color:#fff}
-.why-grid .wi p{font-size:13.5px;color:var(--muted);margin:0;max-width:260px;margin:0 auto}
-@media(max-width:760px){.why-grid{grid-template-columns:1fr;gap:34px}}
-
-/* ---------- FAQ ---------- */
-.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-.faq-list details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
-.faq-list summary{cursor:pointer;font-weight:700;font-size:15px;list-style:none;color:#fff}
-.faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary::after{content:"+";float:right;color:var(--gold);font-weight:800;font-size:18px}
-.faq-list details[open] summary::after{content:"–"}
-.faq-list p{margin:14px 0 0;color:var(--slate);font-size:14px}
-
-/* ---------- contact ---------- */
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
-@media(max-width:800px){.contact-grid{grid-template-columns:1fr}}
-.contact-info{display:flex;flex-direction:column;gap:14px}
-.contact-info .card.pad h3{margin:0 0 8px;font-size:13px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-.contact-info .card.pad p{margin:0;font-size:15px;font-weight:600;color:#fff}
-.contact-info .card.pad.hours #hoursList{display:flex;flex-direction:column;gap:5px}
-.contact-info .card.pad.hours #hoursList div{display:flex;justify-content:space-between;font-size:13.5px;font-weight:500;color:var(--slate)}
-.map-card{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:280px}
-.map-card iframe{width:100%;height:100%;min-height:280px;border:0;filter:invert(92%) hue-rotate(180deg) contrast(90%)}
-
-/* ---------- final CTA ---------- */
-.final-cta{background:linear-gradient(135deg,#171308,#0b0b0d 60%);border-top:1px solid var(--line);text-align:center;padding:80px 0}
-.final-cta h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:0 0 16px}
-.final-cta p{color:var(--slate);font-size:15.5px;margin:0 0 30px;max-width:520px;margin-left:auto;margin-right:auto}
-
-.footer{text-align:center;color:var(--muted);font-size:13px;padding:40px 0 110px;border-top:1px solid var(--line)}
-.footer .fbrand{font-family:var(--serif);color:var(--gold-soft);font-size:16px;font-weight:700;margin-bottom:10px}
-
-/* ---------- mobile sticky bar ---------- */
-.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--card);border-top:1px solid var(--line);
-padding:10px 14px;gap:10px}
-.mobile-bar a{flex:1;text-align:center;padding:13px;border-radius:10px;font-weight:700;font-size:14.5px}
-.mobile-bar .mb-call{border:1.5px solid var(--line);color:var(--slate)}
-.mobile-bar .mb-book{background:var(--gold);color:#171308}
-@media(max-width:700px){.mobile-bar{display:flex}.footer{padding-bottom:96px}}
-
-/* ---------- reveal on scroll ---------- */
-.reveal,.reveal-left,.reveal-right,.reveal-scale{
-  transition:opacity .8s cubic-bezier(.16,.8,.24,1), transform .8s cubic-bezier(.16,.8,.24,1);will-change:opacity,transform}
-.reveal{opacity:0;transform:translateY(28px)}
-.reveal-left{opacity:0;transform:translate(-56px,0)}
-.reveal-right{opacity:0;transform:translate(56px,0)}
-.reveal-scale{opacity:0;transform:scale(.86) translateY(10px)}
-.reveal.in,.reveal-left.in,.reveal-right.in,.reveal-scale.in{opacity:1;transform:none}
-
-/* ---------- ambient floaty / cinematic motion ---------- */
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.floaty{animation:floaty 6s ease-in-out infinite}
-@keyframes kenBurns{0%{transform:scale(1)}100%{transform:scale(1.09)}}
-.hero-bg img{animation:kenBurns 16s ease-in-out infinite alternate}
-
-/* ---------- modal entrance: smooth pop rather than an instant appearance ---------- */
-@keyframes fadeInBackdrop{from{opacity:0}to{opacity:1}}
-@keyframes modalPop{from{opacity:0;transform:scale(.82) translateY(18px)}to{opacity:1;transform:none}}
-.lightbox{animation:fadeInBackdrop .35s ease}
-.lightbox img{animation:modalPop .45s cubic-bezier(.34,1.56,.64,1)}
-
-@media (prefers-reduced-motion: reduce){
-  .reveal,.reveal-left,.reveal-right,.reveal-scale,.floaty,.hero-bg img,.lightbox,.lightbox img{
-    animation:none!important;transition:none!important;opacity:1!important;transform:none!important}
-}
-
-/* ---------- modal ---------- */
-.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:grid;place-items:center;z-index:50;padding:20px}
-.modal{background:var(--card);border:1px solid var(--line);border-radius:16px;max-width:450px;width:100%;box-shadow:0 24px 70px rgba(0,0,0,.6);max-height:90vh;overflow:auto}
-.modal header{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.modal header h3{margin:0;font-size:17px;color:#fff}
-.modal .body{padding:22px}
-.modal footer{padding:18px 22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
-@media(max-width:560px){
-.row{grid-template-columns:1fr}
-.why-grid{padding:48px 0}
-}
+:root{--bone:#f5f2ec;--paper:#fff;--ink:#1f1a1d;--plum:#4a2a42;--plum-d:#331c2d;--brass:#a8823c;--brass-l:#c9a45c;--mute:#7b6e75;--line:#e5ded4;--ok:#3f7d5c;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,-apple-system,sans-serif;--wrap:1180px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bone);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 26px}
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.02;letter-spacing:-.015em}
+header{position:sticky;top:0;z-index:60;background:rgba(245,242,236,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:70px}
+.mark{font-family:var(--serif);font-size:19px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.mark small{display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:.34em;color:var(--brass);margin-top:5px}
+nav.main{display:flex;gap:30px;font-size:13px;letter-spacing:.05em}
+nav.main a{color:var(--mute)}nav.main a:hover{color:var(--ink)}
+.bookpill{background:var(--plum);color:#fff;padding:12px 24px;border-radius:100px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border:0;cursor:pointer;font-family:var(--sans)}
+.bookpill:hover{background:var(--plum-d)}
+@media(max-width:900px){nav.main{display:none}}
+.hero{padding:70px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(52px,8.4vw,108px)}.hero h1 em{font-style:italic;color:var(--plum)}
+.hero .lede{font-size:17.5px;color:var(--mute);max-width:40ch;margin:28px 0 34px;line-height:1.65}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-solid{background:var(--plum);color:#fff;padding:16px 34px;border-radius:100px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;border:0;cursor:pointer;font-weight:500;font-family:var(--sans)}
+.btn-line{padding:16px 30px;border-radius:100px;border:1px solid var(--ink);font-size:13px;letter-spacing:.12em;text-transform:uppercase;background:none;cursor:pointer;font-family:var(--sans)}
+.hero-img{position:relative;aspect-ratio:4/5;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-tag{position:absolute;left:0;bottom:0;background:var(--bone);padding:18px 24px 0 0;max-width:74%}
+.hero-tag b{font-family:var(--serif);font-size:26px;font-weight:400;display:block}
+.hero-tag span{font-size:12.5px;color:var(--mute)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}.hero{padding-top:44px}}
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:80px;background:var(--paper)}
+.strip-in{display:flex;justify-content:space-between;gap:28px;padding:26px 0;flex-wrap:wrap}
+.strip-in div{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--mute)}
+.strip-in b{color:var(--plum);font-weight:600}
+section{padding:96px 0}.sec-head{max-width:600px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(34px,4.6vw,54px);margin:14px 0 16px}
+.sec-head p{color:var(--mute);font-size:16.5px}
+</style>
+<style>
+.tabs{display:flex;gap:8px;margin-bottom:34px;flex-wrap:wrap}
+.tab{padding:11px 22px;border-radius:100px;border:1px solid var(--line);background:var(--paper);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--mute);font-family:var(--sans)}
+.tab.on{background:var(--plum);color:#fff;border-color:var(--plum)}
+.svc{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:26px 0;border-bottom:1px solid var(--line)}
+.svc:first-child{border-top:1px solid var(--line)}
+.svc h3{font-size:26px;font-weight:400;margin-bottom:7px}
+.svc p{color:var(--mute);font-size:14.5px;max-width:52ch}
+.svc-meta{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.chip{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:100px;background:#efe9e0;color:var(--mute)}
+.chip.dep{background:#f3e6cf;color:#7a5a1c}.chip.patch{background:#e9e2ef;color:var(--plum)}
+.svc-right{text-align:right;white-space:nowrap}
+.price{font-family:var(--serif);font-size:29px}
+.from{font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:2px}
+.svc-book{margin-top:10px;background:none;border:1px solid var(--ink);border-radius:100px;padding:9px 20px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans)}
+.svc-book:hover{background:var(--ink);color:var(--bone)}
+@media(max-width:640px){.svc{grid-template-columns:1fr}.svc-right{text-align:left}}
+.team-sec{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.sty img{aspect-ratio:3/4;object-fit:cover;width:100%;filter:grayscale(1);transition:filter .4s}
+.sty:hover img{filter:grayscale(0)}
+.sty h3{font-size:21px;font-weight:400;margin:16px 0 3px}
+.lvl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.sty p{font-size:13.5px;color:var(--mute);margin-top:9px}
+.sty .spec{font-size:12px;color:var(--plum);margin-top:8px}
+@media(max-width:900px){.team{grid-template-columns:repeat(2,1fr)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.card{background:var(--paper);border:1px solid var(--line);padding:38px 34px}
+.card h3{font-size:27px;font-weight:400;margin:16px 0 12px}
+.card p{color:var(--mute);font-size:15px}
+.card .num{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.2em}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.post img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.post h3{font-size:20px;font-weight:400;margin:16px 0 7px}
+.post span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.post p{font-size:14px;color:var(--mute)}
+@media(max-width:800px){.posts{grid-template-columns:1fr}}
+.rev-sec{background:var(--plum);color:#f3ece9}
+.rev-sec .eyebrow{color:var(--brass-l)}.rev-sec h2{color:#fff}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.rev q{font-family:var(--serif);font-size:20px;line-height:1.45;display:block;margin-bottom:16px;font-style:normal}
+.rev b{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.rev small{display:block;color:#c3aeba;font-size:12px;margin-top:3px}
+@media(max-width:800px){.revs{grid-template-columns:1fr;gap:30px}}
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.hours{width:100%;border-collapse:collapse;margin-top:8px}
+.hours td{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.hours td:last-child{text-align:right;color:var(--mute)}
+.visit img{aspect-ratio:1/1;object-fit:cover;width:100%}
+@media(max-width:800px){.visit{grid-template-columns:1fr;gap:34px}}
+footer{background:var(--ink);color:#cbc2c7;padding:64px 0 34px;font-size:14px}
+footer .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;margin-bottom:44px}
+footer .mark{color:#fff}footer a{color:#cbc2c7}footer a:hover{color:#fff}
+footer h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-l);margin-bottom:14px;font-weight:600}
+footer li{list-style:none;margin-bottom:9px}
+.fbot{border-top:1px solid #3a3237;padding-top:22px;font-size:12px;color:#8d8288;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:800px){footer .fgrid{grid-template-columns:1fr}}
+</style>
+<style>
+.scrim{position:fixed;inset:0;background:rgba(31,26,29,.55);z-index:90;display:none}.scrim.on{display:block}
+.modal{position:fixed;z-index:91;inset:auto 0 0 0;background:var(--bone);max-height:92vh;overflow-y:auto;display:none;border-radius:14px 14px 0 0}.modal.on{display:block}
+@media(min-width:760px){.modal{inset:5vh auto auto 50%;transform:translateX(-50%);width:660px;border-radius:4px;max-height:90vh}}
+.mhead{position:sticky;top:0;background:var(--bone);border-bottom:1px solid var(--line);padding:20px 26px;display:flex;justify-content:space-between;align-items:center;z-index:2}
+.mhead b{font-family:var(--serif);font-size:20px;font-weight:400}
+.xbtn{background:none;border:0;font-size:24px;cursor:pointer;color:var(--mute);line-height:1}
+.mbody{padding:26px}
+.steps{display:flex;gap:6px;margin-bottom:26px}.stp{flex:1;height:2px;background:var(--line)}.stp.on{background:var(--plum)}
+.opt{width:100%;text-align:left;background:var(--paper);border:1px solid var(--line);padding:17px 20px;margin-bottom:9px;cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:center;font:inherit;font-family:var(--sans)}
+.opt:hover{border-color:var(--plum)}
+.opt strong{font-family:var(--serif);font-size:18px;font-weight:400;display:block}
+.opt small{color:var(--mute);font-size:13px}
+.opt .p{font-family:var(--serif);font-size:19px;white-space:nowrap}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.slot{padding:12px 4px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:14px;font-family:var(--sans)}
+.slot:hover{border-color:var(--plum)}.slot.sel{background:var(--plum);color:#fff;border-color:var(--plum)}
+.fld{margin-bottom:15px}
+.fld label{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--mute);margin-bottom:6px;font-weight:600}
+.fld input,.fld textarea{width:100%;padding:13px 15px;border:1px solid var(--line);background:var(--paper);font-family:var(--sans);font-size:15px}
+.fld input:focus,.fld textarea:focus{outline:0;border-color:var(--plum)}
+.note{background:#f3e6cf;border-left:3px solid var(--brass);padding:14px 17px;font-size:13.5px;margin-bottom:18px}
+.note.patch{background:#e9e2ef;border-left-color:var(--plum)}
+.mfoot{display:flex;gap:10px;margin-top:22px}
+.mfoot button{flex:1;padding:15px;border-radius:100px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:0;font-family:var(--sans)}
+.back{background:none;border:1px solid var(--line)!important;flex:0 0 110px!important}
+.next{background:var(--plum);color:#fff}.next:disabled{opacity:.4}
+.err{color:#b3261e;font-size:13.5px;margin-top:12px}
+.done{text-align:center;padding:24px 0}
+.done .tick{width:56px;height:56px;border-radius:50%;background:var(--ok);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 20px}
+.done h3{font-size:28px;font-weight:400;margin-bottom:10px}
+.refbox{background:var(--paper);border:1px solid var(--line);padding:18px;margin:20px 0;font-family:var(--serif);font-size:22px;letter-spacing:.08em}
+.hide{display:none!important}
+.dates{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:18px}
+.dpick{flex:0 0 auto;min-width:64px;padding:11px 8px;border:1px solid var(--line);background:var(--paper);cursor:pointer;text-align:center;font-family:var(--sans)}
+.dpick.sel{background:var(--plum);color:#fff;border-color:var(--plum)}
+.dpick b{display:block;font-size:17px;font-weight:500}
+.dpick span{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.spin{text-align:center;color:var(--mute);padding:30px;font-size:14px}
 </style>
 </head>
 <body>
-<header id="hdr"><div class="container nav">
-<div class="brand"><span class="logo">G</span> THE GILDED ROOM</div>
-<nav class="navlinks">
-<a href="#services">Services</a>
-<a href="#team">Stylists</a>
-<a href="#gallery">Gallery</a>
-<a href="#reviews">Reviews</a>
-<a href="#faq">FAQ</a>
-<a href="#" id="manageLink">Manage booking</a>
-</nav>
-<div class="nav-cta">
-<a class="call" href="tel:01142724180">0114 272 4180</a>
-<a href="#book" class="btn primary">Book Now</a>
-</div>
-</div></header>
-
-<!-- ============ HERO ============ -->
-<section class="hero">
-<div class="hero-bg"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1600&q=75" alt="The Gilded Room salon interior" width="1600" height="1063"></div>
-<div class="container hero-inner reveal-scale">
-<span class="pill">Master Stylists · Est. Devonshire Quarter</span>
-<h1>Precision Cuts.<br>The <span class="accent">Gilded Room</span> Standard.</h1>
-<p class="sub">Balayage, colour correction and precision cutting — delivered by master stylists in a space built for clients who expect more.</p>
-<div class="hero-cta">
-<a href="#book" class="btn primary big">Book Your Appointment</a>
-<a href="tel:01142724180" class="btn ghost big">Call Us</a>
-</div>
-<div class="trust"><span class="stars">★★★★★</span><span>4.9 out of 5 · 380+ Google reviews</span></div>
-</div>
-</section>
-
-<div class="stats-band"><div class="container stats reveal-scale">
-<div class="stat"><b>15+</b><span>Years Combined Craft</span></div>
-<div class="stat"><b>12,000+</b><span>Cuts Delivered</span></div>
-<div class="stat"><b>4.9★</b><span>Average Rating</span></div>
-<div class="stat"><b>3</b><span>Master Stylists</span></div>
+<header><div class="wrap hbar">
+<a href="#top" class="mark">The Gilded Room<small>Sheffield</small></a>
+<nav class="main"><a href="#services">Services</a><a href="#team">Stylists</a><a href="#promise">Colour Care</a><a href="#journal">Journal</a><a href="#visit">Visit</a></nav>
+<button class="bookpill" data-book>Book</button></div></header>
+<main id="top">
+<div class="hero"><div class="wrap hero-grid"><div>
+<span class="eyebrow">Colour specialists &middot; est. 2016</span>
+<h1>Colour is<br>our <em>craft.</em></h1>
+<p class="lede">A colour-led salon in the Devonshire Quarter. Balayage, corrections and cutting that grows out properly — booked online, in about thirty seconds.</p>
+<div class="cta-row"><button class="btn-solid" data-book>Book an appointment</button><a class="btn-line" href="#services">See services</a></div>
+</div><div class="hero-img">
+<img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=900" alt="Colour applied at the basin">
+<div class="hero-tag"><b>4.9</b><span>from 312 Google reviews</span></div>
+</div></div></div>
+<div class="strip"><div class="wrap strip-in">
+<div><b>Deposit</b> secured at booking</div><div><b>Patch tests</b> tracked automatically</div>
+<div><b>Three</b> stylist levels</div><div><b>Open late</b> Wed &amp; Thu</div>
 </div></div>
-
-<!-- ============ SERVICES ============ -->
-<section class="section" id="services"><div class="container">
-<div class="sec-head reveal">
-<div class="kicker">Services &amp; Pricing</div>
-<h2>Every Price. Every Minute. No Surprises.</h2>
-<p class="lead">Full transparency on price and duration — choose a service below to jump straight into booking.</p>
-</div>
-<div class="svc-list reveal-left" id="svcList"></div>
+<section id="services"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">The menu</span><h2>Everything priced before you sit down.</h2>
+<p>Colour work needs a consultation and a patch test. Both are built into the booking, so there are no surprises on the day.</p></div>
+<div class="tabs" id="tabs"></div><div id="svcList"><div class="spin">Loading services…</div></div>
 </div></section>
-
-<!-- ============ BOOKING WIZARD ============ -->
-<section class="section" id="book"><div class="container">
-<div class="sec-head reveal">
-<div class="kicker">Book Online</div>
-<h2>Reserve Your Chair</h2>
-<p class="lead">Live availability, instant confirmation — takes less than a minute.</p>
-</div>
-<div class="card booking reveal-right" id="wizard">
-<div class="steps" id="stepsBar"></div>
-<div id="panels"></div>
-</div>
+<section class="team-sec" id="team"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">The floor</span><h2>Find the right pair of hands.</h2>
+<p>Price follows experience, not the service. Pick the level that suits the job — a director for a correction, a stylist for a trim.</p></div>
+<div class="team" id="teamGrid"><div class="spin">Loading team…</div></div>
 </div></section>
-
-<!-- ============ TEAM ============ -->
-<section class="section" id="team"><div class="container">
-<div class="sec-head reveal">
-<div class="kicker">Meet The Stylists</div>
-<h2>Master Craftsmen, Not Just Stylists</h2>
-<p class="lead">Every chair at The Gilded Room is held by a specialist with years of dedicated craft behind them.</p>
+<section id="promise"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">Colour care</span><h2>Two things we do differently.</h2></div>
+<div class="two">
+<div class="card"><span class="num">01</span><h3>A deposit holds the chair.</h3>
+<p>A full head of balayage blocks out four hours. When someone does not turn up, that afternoon is gone and the stylist still needs paying. A deposit between £20 and £75 on colour work is taken at booking and comes straight off the bill.</p></div>
+<div class="card"><span class="num">02</span><h3>Your patch test is on file.</h3>
+<p>Colour needs a skin test at least 48 hours before, every six months. The system knows when yours was done and flags it when you book, so nobody is turned away at the door.</p></div>
+</div></div></section>
+<section id="journal" style="background:var(--paper);border-top:1px solid var(--line)"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">The journal</span><h2>Notes from the chair.</h2></div>
+<div class="posts">
+<div class="post"><img src="https://images.unsplash.com/photo-1522664101602-c1e70bcc9996?auto=format&fit=crop&q=80&w=700" alt="Balayage"><span>Aftercare</span><h3>Making balayage last past week six</h3><p>Four habits that keep tone from going brassy, none of which involve buying more product.</p></div>
+<div class="post"><img src="https://images.unsplash.com/photo-1497433550656-7fb185be365e?auto=format&fit=crop&q=80&w=700" alt="Colour work"><span>Colour</span><h3>What a correction actually involves</h3><p>Why box dye takes three sittings to undo, and what we can honestly promise in one.</p></div>
+<div class="post"><img src="https://images.unsplash.com/photo-1605980625600-88b46abafa8d?auto=format&fit=crop&q=80&w=700" alt="Cutting"><span>Cutting</span><h3>Grown-out layers, and how to ask for them</h3><p>The language that gets you the shape you want rather than the one you described.</p></div>
+</div></div></section>
+<section class="rev-sec"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">Reviews</span><h2>What people say.</h2></div>
+<div class="revs">
+<div class="rev"><q>Nadia sorted a correction two other salons had turned down. Three sittings, no drama, and she told me honestly what was possible each time.</q><b>Jess H.</b><small>Colour correction &middot; Director</small></div>
+<div class="rev"><q>My balayage has never held this well. The deposit at booking is fair enough — it comes off the bill anyway, and it means the chair is actually mine.</q><b>Chloe M.</b><small>Full head balayage &middot; Senior</small></div>
+<div class="rev"><q>Priya has cut my curls for two years. First person who did not try to straighten them first to see what she was working with.</q><b>Danielle O.</b><small>Curly cutting &middot; Senior</small></div>
+</div></div></section>
+<section id="visit"><div class="wrap visit"><div>
+<span class="eyebrow">Visit</span>
+<h2 style="font-size:clamp(32px,4.2vw,48px);margin:14px 0 20px">129 Devonshire Street,<br>Sheffield S3 7SB</h2>
+<p style="color:var(--mute);margin-bottom:26px">Two minutes from Devonshire Green. Street parking after 6pm, and the tram stops at West Street.</p>
+<table class="hours">
+<tr><td>Monday</td><td>9am – 6pm</td></tr><tr><td>Tuesday</td><td>9am – 6pm</td></tr>
+<tr><td>Wednesday</td><td>9am – 8pm</td></tr><tr><td>Thursday</td><td>9am – 8pm</td></tr>
+<tr><td>Friday</td><td>9am – 6pm</td></tr><tr><td>Saturday</td><td>9am – 5pm</td></tr>
+<tr><td>Sunday</td><td>Closed</td></tr></table>
+<div class="cta-row" style="margin-top:30px"><button class="btn-solid" data-book>Book online</button><a class="btn-line" href="tel:01142724180">0114 272 4180</a></div>
 </div>
-<div class="team reveal-scale" id="teamList"></div>
-</div></section>
-
-<!-- ============ WHY CHOOSE US ============ -->
-<div class="why-band"><div class="container why-grid reveal-left">
-<div class="wi"><div class="ic">✂️</div><h3>Master-Level Precision</h3><p>Every colour, cut and finish is executed to a standard most salons don't attempt.</p></div>
-<div class="wi"><div class="ic">🕰️</div><h3>Never Rushed</h3><p>Full time slots for every service — no ten-minute conveyor-belt cuts here.</p></div>
-<div class="wi"><div class="ic">🥃</div><h3>An Experience, Not a Chore</h3><p>Hot towels, quality products and an atmosphere built for clients who notice detail.</p></div>
-</div></div>
-
-<!-- ============ CONFIG.gallery ============ -->
-<section class="section" id="gallery"><div class="container">
-<div class="sec-head reveal">
-<div class="kicker">Inside The Gilded Room</div>
-<h2>The Craft, Up Close</h2>
-</div>
-<div class="gallery reveal-right" id="galleryGrid"></div>
-</div></section>
-
-<!-- ============ CONFIG.reviews ============ -->
-<section class="section" id="reviews"><div class="container">
-<div class="rev-head reveal">
-<div class="rev-score">
-<div class="n">4.9</div>
-<div><div class="stars" style="color:var(--gold)">★★★★★</div><div class="gl">Based on 380+ Google reviews</div></div>
-</div>
-<div class="kicker" style="margin:0">What Our Clients Say</div>
-</div>
-<div class="reviews-grid reveal-scale" id="reviewsGrid"></div>
-</div></section>
-
-<!-- ============ FAQ ============ -->
-<section class="section" id="faq"><div class="container">
-<div class="sec-head reveal">
-<div class="kicker">Good To Know</div>
-<h2>Frequently Asked Questions</h2>
-</div>
-<div class="faq-list reveal-left">
-<details><summary>Do I need to book in advance?</summary><p>Walk-ins are welcome when a chair is free, but booking online guarantees your preferred stylist and time — especially on weekends.</p></details>
-<details><summary>Can I request a specific stylist?</summary><p>Absolutely. Choose "Any available stylist" for the fastest slot, or pick a named stylist during booking if you have a preference.</p></details>
-<details><summary>What if I need to cancel or change my time?</summary><p>Use "Manage booking" in the top menu with your reference code and email to cancel any time before your appointment.</p></details>
-<details><summary>Do you take card payments?</summary><p>Yes — we accept all major cards and contactless payment in-store. Payment is taken after your service, not at booking.</p></details>
-<details><summary>How early should I arrive?</summary><p>Please arrive 5 minutes before your slot. Running more than 10 minutes late may mean your appointment needs to be rescheduled.</p></details>
-</div>
-</div></section>
-
-<!-- ============ CONTACT ============ -->
-<section class="section" id="contact"><div class="container">
-<div class="sec-head reveal">
-<div class="kicker">Visit Us</div>
-<h2>Find The Gilded Room</h2>
-</div>
-<div class="contact-grid reveal-right">
-<div class="contact-info">
-<div class="card pad"><h3>Address</h3><p>14 Devonshire Quarter Lane, Sheffield W1U 2NT</p></div>
-<div class="card pad"><h3>Phone</h3><p><a href="tel:01142724180" style="color:#fff">0114 272 4180</a></p></div>
-<div class="card pad"><h3>Email</h3><p><a href="mailto:hello@thevanguard.stylist" style="color:#fff">hello@thevanguard.stylist</a></p></div>
-<div class="card pad hours"><h3>Opening Hours</h3><div id="hoursList">
-<div><span>Monday – Friday</span><span>9:00 – 20:00</span></div>
-<div><span>Saturday</span><span>10:00 – 18:00</span></div>
-<div><span>Sunday</span><span>Closed</span></div>
-</div></div>
-</div>
-<div class="map-card"><iframe src="https://www.google.com/maps?q=14+Devonshire Quarter+Lane,Sheffield+W1U+2NT&output=embed" loading="lazy" title="Map to The Gilded Room"></iframe></div>
-</div>
-</div></section>
-
-<!-- ============ FINAL CTA ============ -->
-<section class="final-cta reveal-scale"><div class="container">
-<h2>Your Best Look Is One Booking Away.</h2>
-<p>Join the clients who trust The Gilded Room for every cut, colour and finish.</p>
-<a href="#book" class="btn primary big">Book Your Appointment</a>
-</div></section>
-
-<footer class="footer">
-<div class="fbrand">THE GILDED ROOM</div>
-<div>14 Devonshire Quarter Lane, Sheffield W1U 2NT · 0114 272 4180</div>
-<div style="margin-top:10px">© <span id="yr"></span> The Gilded Room Salon. Demo site for portfolio purposes.</div>
-</footer>
-
-<div class="mobile-bar">
-<a href="tel:01142724180" class="mb-call">Call</a>
-<a href="#book" class="mb-book">Book Now</a>
-</div>
-
-<div id="modalRoot"></div>
-<div id="lightboxRoot"></div>
-
+<img src="https://images.unsplash.com/photo-1576611927626-4dace43273c7?auto=format&fit=crop&q=80&w=800" alt="Inside the salon">
+</div></section></main>
+<footer><div class="wrap"><div class="fgrid">
+<div><div class="mark">The Gilded Room<small>Sheffield</small></div>
+<p style="margin-top:16px;max-width:34ch;color:#9d939a">Colour-led hair salon in the Devonshire Quarter. Balayage, corrections and cutting.</p></div>
+<div><h4>Salon</h4><ul><li><a href="#services">Services</a></li><li><a href="#team">Stylists</a></li><li><a href="#journal">Journal</a></li><li><a href="#visit">Visit</a></li></ul></div>
+<div><h4>Get in touch</h4><ul><li><a href="tel:01142724180">0114 272 4180</a></li><li><a href="mailto:hello@thegildedroom.co.uk">hello@thegildedroom.co.uk</a></li><li>129 Devonshire Street</li><li>Sheffield S3 7SB</li></ul></div>
+</div><div class="fbot"><span>&copy; 2026 The Gilded Room</span><span>A Sorted Sites demo &middot; not a real salon</span></div>
+</div></footer>
+<div class="scrim" id="scrim"></div>
+<div class="modal" id="modal" role="dialog" aria-label="Book an appointment">
+<div class="mhead"><b id="mtitle">Book an appointment</b><button class="xbtn" id="mclose">&times;</button></div>
+<div class="mbody"><div class="steps"><div class="stp on" data-s="1"></div><div class="stp" data-s="2"></div><div class="stp" data-s="3"></div><div class="stp" data-s="4"></div></div>
+<div id="mstep"></div></div></div>
 <script>
-/* ================= config / constants ================= */
-const API = "https://the-gilded-room-api.luke1999-turner.workers.dev/api";
-const ICONS = { razor:"✂️", scissors:"💇", blade:"🪒", crown:"👑", towel:"🧖", kid:"🧒", hat:"🎩" };
-const $ = (s, el=document) => el.querySelector(s);
-const $$ = (s, el=document) => [...el.querySelectorAll(s)];
-const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
-$("#yr").textContent = new Date().getFullYear();
-
-  /* ================= site content (edit here to rebrand) ================= */
-  const CONFIG = {
-    brand: {
-      name: "The Gilded Room",
-      shortName: "THE GILDED ROOM",
-      pillText: "Master Stylists · Est. Devonshire Quarter",
-      heroHeadlineHtml: 'Precision Cuts.<br>The <span class="accent">Gilded Room</span> Standard.',
-      heroSub: "Balayage, colour correction and precision cutting — delivered by master stylists in a space built for clients who expect more.",
-    },
-    business: {
-      address: "14 Devonshire Quarter Lane, Sheffield W1U 2NT",
-      phone: "0114 272 4180",
-      phoneHref: "01142724180",
-      email: "hello@thevanguard.stylist",
-      mapQuery: "14+Devonshire Quarter+Lane,Sheffield+W1U+2NT",
-      hours: [["Monday – Friday","9:00 – 20:00"],["Saturday","10:00 – 18:00"],["Sunday","Closed"]],
-    },
-    rating: { score: "4.9", count: 380, source: "Google reviews" },
-    stats: [
-      { value:"15+", label:"Years Combined Craft" },
-      { value:"12,000+", label:"Cuts Delivered" },
-      { value:"4.9★", label:"Average Rating" },
-      { value:"3", label:"Master Stylists" },
-      ],
-    gallery: [
-      { src:"https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=75", alt:"Salon interior" },
-      { src:"https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=75", alt:"Colour application" },
-      { src:"https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=75", alt:"Balayage finish" },
-                                           { src:"https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=75", alt:"Vintage stylist chair" },
-      { src:"https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=75", alt:"Haircut in progress" },
-      ],
-    reviews: [
-      { name:"Jess H.", text:"Nadia sorted a colour correction two other salons turned down. Booking online took thirty seconds and I got a text reminder the day before.", stars:5 },
-      { name:"Chloe M.", text:"My balayage has never held this well. Deposit taken at booking, no messing, and everything runs on time.", stars:5 },
-      { name:"Danielle O.", text:"Priya has cut my curls for two years now. First person who never tried to straighten them first.", stars:5 },
-      { name:"Ravi S.", text:"Took my son for his first proper cut — patient, gentle, great with kids. Will be back.", stars:5 },
-      ],
-    faq: [
-      { q:"Do I need to book in advance?", a:"Walk-ins are welcome when a chair is free, but booking online guarantees your preferred stylist and time — especially on weekends." },
-      { q:"Can I request a specific stylist?", a:"Absolutely. Choose \"Any available stylist\" for the fastest slot, or pick a named stylist during booking if you have a preference." },
-      { q:"What if I need to cancel or change my time?", a:"Use \"Manage booking\" in the top menu with your reference code and email to cancel any time before your appointment." },
-      { q:"Do you take card payments?", a:"Yes — we accept all major cards and contactless payment in-store. Payment is taken after your service, not at booking." },
-      { q:"How early should I arrive?", a:"Please arrive 5 minutes before your slot. Running more than 10 minutes late may mean your appointment needs to be rescheduled." },
-      ],
-    chat: {
-      accent: "#c9a227", accent2: "#a8861f",
-      area: "Devonshire Quarter, Sheffield",
-      services: ["Cutting", "Balayage", "Colour correction", "Bridal hair"],
-      knowledge: [
-        "Walk-ins are welcome when a chair is free, but booking online guarantees your preferred stylist and time, especially on weekends.",
-        "To cancel or change a booking, use 'Manage booking' in the top menu with the booking reference and email, any time before the appointment.",
-        "We accept all major cards and contactless in-store — payment is taken after the service, not at booking.",
-        "Please arrive 5 minutes before your slot; more than 10 minutes late may mean the appointment needs rescheduling.",
-        "Opening hours: Monday-Friday 9am-8pm, Saturday 10am-6pm, closed Sunday.",
-        "Address: 14 Devonshire Quarter Lane, Sheffield W1U 2NT.",
-        ],
-      greeting: "Hi! 👋 Welcome to The Gilded Room. Fancy booking a cut, or got a quick question first?",
-    },
-  };
-
-  function renderBrand(){
-    document.querySelectorAll(".call, .mb-call").forEach((a) => { a.href = "tel:" + CONFIG.business.phoneHref; });
-    $(".nav .brand").innerHTML = `<span class="logo">G</span> ${esc(CONFIG.brand.shortName)}`;
-    $(".hero .pill").textContent = CONFIG.brand.pillText;
-    $(".hero h1").innerHTML = CONFIG.brand.heroHeadlineHtml;
-    $(".hero-inner .sub").textContent = CONFIG.brand.heroSub;
-    $(".trust span:last-child").textContent = `${CONFIG.rating.score} out of 5 · ${CONFIG.rating.count}+ ${CONFIG.rating.source}`;
-    $(".stats-band .stats").innerHTML = CONFIG.stats.map((s) => `<div class="stat"><b>${esc(s.value)}</b><span>${esc(s.label)}</span></div>`).join("");
-    $("#faq .faq-list").innerHTML = CONFIG.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("");
-    const ccards = $$(".contact-info .card.pad");
-    if (ccards[0]) ccards[0].querySelector("p").textContent = CONFIG.business.address;
-    if (ccards[1]) ccards[1].querySelector("p").innerHTML = `<a href="tel:${CONFIG.business.phoneHref}" style="color:#fff">${esc(CONFIG.business.phone)}</a>`;
-    if (ccards[2]) ccards[2].querySelector("p").innerHTML = `<a href="mailto:${CONFIG.business.email}" style="color:#fff">${esc(CONFIG.business.email)}</a>`;
-    $("#hoursList").innerHTML = CONFIG.business.hours.map(([d,h]) => `<div><span>${esc(d)}</span><span>${esc(h)}</span></div>`).join("");
-    $(".map-card iframe").src = `https://www.google.com/maps?q=${CONFIG.business.mapQuery}&output=embed`;
-    $(".footer .fbrand").textContent = CONFIG.brand.shortName;
-    $(".footer .fbrand").nextElementSibling.textContent = `${CONFIG.business.address} · ${CONFIG.business.phone}`;
-  }
-  renderBrand();
-  
-
-/* ================= tiny DB layer ================= */
-const DB = {
-  async services(){ return (await fetch(`${API}/services`)).json(); },
-  async stylists(){ return (await fetch(`${API}/stylists`)).json(); },
-  async availability(date, serviceId, staffId){
-    const q = new URLSearchParams({ date, serviceId });
-    if (staffId && staffId !== "any") q.set("staffId", staffId);
-    const r = await (await fetch(`${API}/availability?${q}`)).json();
-    return r.slots || [];
-  },
-  async dayCounts(serviceId, staffId, from, to){
-    const q = new URLSearchParams({ serviceId, from, to });
-    if (staffId && staffId !== "any") q.set("staffId", staffId);
-    return (await fetch(`${API}/day-counts?${q}`)).json();
-  },
-  async book(payload){
-    const r = await fetch(`${API}/appointments`, { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
-    const data = await r.json();
-    if (!r.ok) throw new Error(data.error || "Booking failed.");
-    return data;
-  },
-  async lookup(ref, email){
-    const q = new URLSearchParams({ ref, email });
-    const r = await fetch(`${API}/appointments/lookup?${q}`);
-    const data = await r.json();
-    if (!r.ok) throw new Error(data.error || "Not found.");
-    return data;
-  },
-  async cancel(ref, email){
-    const r = await fetch(`${API}/appointments/lookup`, { method:"PATCH", headers:{"Content-Type":"application/json"}, body: JSON.stringify({ ref, email, status:"cancelled" }) });
-    const data = await r.json();
-    if (!r.ok) throw new Error(data.error || "Could not cancel.");
-    return data;
-  },
-  async waitlist(payload){
-    const r = await fetch(`${API}/waitlist`, { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
-    const data = await r.json();
-    if (!r.ok) throw new Error(data.error || "Could not join waitlist.");
-    return data;
-  },
-  fmt(min){ return `${String(Math.floor(min/60)).padStart(2,"0")}:${String(min%60).padStart(2,"0")}`; },
-  money(pence){ return `£${(pence/100).toFixed(2)}`; }
-};
-
-/* ================= reveal on scroll ================= */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((e) => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
-}, { threshold:.12 });
-$$(".reveal,.reveal-left,.reveal-right,.reveal-scale").forEach((el) => io.observe(el));
-
-/* ================= state ================= */
-const state = { services:[], stylists:[], service:null, staffId:"any", date:null, slotMin:null, slotStaffId:null };
-
-/* ================= render services ================= */
-function renderServices(services){
-  $("#svcList").innerHTML = services.map((s) => `
-    <div class="card svc ${s.popular ? "popular" : ""}">
-      ${s.popular ? '<span class="pop-badge">Most Popular</span>' : ""}
-      <div class="svc-ic">${ICONS[s.icon] || "✂️"}</div>
-      <h3>${esc(s.name)}</h3>
-      <p>${esc(s.description || "")}</p>
-      <div class="meta"><span class="dur">${s.duration_min} min</span><span class="price">${DB.money(s.price_pence)}</span></div>
-      <a href="#book" class="book-link" data-svc="${s.id}">Book This Service</a>
-    </div>`).join("");
-  $$("#svcList [data-svc]").forEach((a) => a.addEventListener("click", (e) => {
-    const svc = services.find((s) => s.id === +e.currentTarget.dataset.svc);
-    setTimeout(() => selectService(svc), 300);
-  }));
+var API="https://the-gilded-room-api.luke1999-turner.workers.dev/api";
+var Q=String.fromCharCode(39);
+var S={services:[],stylists:[],cat:"Colour",step:1,svc:null,staffId:"any",date:null,min:null};
+function $(s){return document.querySelector(s);}
+function esc(t){var s=String(t==null?"":t);s=s.split("&").join("&amp;");s=s.split("<").join("&lt;");s=s.split(">").join("&gt;");s=s.split(String.fromCharCode(34)).join("&quot;");s=s.split(String.fromCharCode(39)).join(""+Q+"");return s;}
+function gbp(p){return "£"+(p/100).toFixed(0);}
+function dur(m){return m>=60?(m/60)+"h"+(m%60?" "+(m%60)+"m":""):m+" min";}
+function catOf(s){if(s.requires_patch_test)return "Colour";if(/cut|restyle/i.test(s.name))return "Cutting";return "Treatments";}
+function fmtMin(m){var hh=Math.floor(m/60),mm=m%60;return (hh<10?"0":"")+hh+":"+(mm<10?"0":"")+mm;}
+function fmtDate(d){return new Date(d+"T00:00:00").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"});}
+function loadData(){
+ Promise.all([fetch(API+"/services").then(function(r){return r.json();}),fetch(API+"/stylists").then(function(r){return r.json();})])
+ .then(function(res){S.services=res[0].data||res[0];S.stylists=res[1].data||res[1];renderTabs();renderSvc();renderTeam();})
+ .catch(function(){$("#svcList").innerHTML="<div class=spin>Could not load services just now.</div>";});
 }
-
-/* ================= render team ================= */
-function renderTeam(stylists){
-  $("#teamList").innerHTML = stylists.map((b) => `
-    <div class="card member">
-      <img class="photo" src="${b.photo}" alt="${esc(b.name)}" loading="lazy" width="100" height="100">
-      <h3>${esc(b.name)}</h3>
-      <div class="role">${esc(b.title)}</div>
-      <div class="creds">${b.experience_years}+ years experience</div>
-      <p class="bio">${esc(b.bio || "")}</p>
-    </div>`).join("");
+function renderTabs(){
+ $("#tabs").innerHTML=["Colour","Cutting","Treatments"].map(function(c){return "<button class="+Q+"tab"+(c===S.cat?" on":"")+""+Q+" data-cat="+Q+""+c+""+Q+">"+c+"</button>";}).join("");
 }
-
-/* ================= gallery ================= */
-  function renderGallery(){
-    $("#galleryGrid").innerHTML = CONFIG.gallery.map((g, i) => `<figure data-i="${i}"><img src="${g.src}" alt="${esc(g.alt)}" loading="lazy" width="400" height="300"></figure>`).join("");
-  $$("#galleryGrid figure").forEach((f) => f.addEventListener("click", () => openLightbox(CONFIG.gallery[+f.dataset.i])));
+function renderSvc(){
+ var list=S.services.filter(function(s){return catOf(s)===S.cat;});
+ $("#svcList").innerHTML=list.map(function(s){
+  var chips="<span class=chip>"+dur(s.duration_min)+"</span>";
+  if(s.deposit_pence>0)chips+="<span class="+Q+"chip dep"+Q+">"+gbp(s.deposit_pence)+" deposit</span>";
+  if(s.requires_patch_test)chips+="<span class="+Q+"chip patch"+Q+">patch test needed</span>";
+  return "<div class=svc><div><h3>"+esc(s.name)+"</h3><p>"+esc(s.description||"")+"</p><div class=svc-meta>"+chips+"</div></div><div class=svc-right><span class=from>from</span><span class=price>"+gbp(s.price_pence)+"</span><br><button class=svc-book data-svc="+Q+""+s.id+""+Q+">Book</button></div></div>";
+ }).join("");
 }
-function openLightbox(g){
-  $("#lightboxRoot").innerHTML = `<div class="lightbox" id="lb"><span class="lb-close">&times;</span><img src="${g.src.replace("w=900","w=1600")}" alt="${esc(g.alt)}"></div>`;
-  const lb = $("#lb");
-  lb.addEventListener("click", () => { $("#lightboxRoot").innerHTML = ""; });
+function renderTeam(){
+ var imgs=["photo-1515848797093-effe16ccfabb","photo-1522337360788-8b13dee7a37e","photo-1533661338746-e4e47d30dfd8","photo-1558265246-e84a824bcd83"];
+ $("#teamGrid").innerHTML=S.stylists.map(function(b,i){
+  var sur=b.surcharge_pence>0?" &middot; +"+gbp(b.surcharge_pence):"";
+  return "<div class=sty><img src="+Q+"https://images.unsplash.com/"+imgs[i%4]+"?auto=format&fit=crop&q=80&w=600"+Q+" alt="+Q+""+esc(b.name)+""+Q+"><h3>"+esc(b.name)+"</h3><span class=lvl>"+esc(b.level||"Stylist")+sur+"</span><p>"+esc(b.bio||"")+"</p><div class=spec>"+esc(b.specialties||"")+"</div></div>";
+ }).join("");
 }
-
-/* ================= reviews ================= */
-function renderReviews(){
-  $("#reviewsGrid").innerHTML = CONFIG.reviews.map((r) => `
-    <div class="card review">
-      <div class="stars">${"★".repeat(r.stars)}</div>
-      <p>"${esc(r.text)}"</p>
-      <div class="who">${esc(r.name)} · Google review</div>
-    </div>`).join("");
+function openBook(svcId){
+ S.step=1;S.svc=null;S.staffId="any";S.date=null;S.min=null;
+ if(svcId){var f=S.services.filter(function(x){return x.id===Number(svcId);})[0];if(f){S.svc=f;S.step=2;}}
+ $("#scrim").className="scrim on";$("#modal").className="modal on";document.body.style.overflow="hidden";draw();
 }
-
-/* ================= booking wizard ================= */
-function stepsHtml(active){
-  const labels = ["Service","Stylist","Time","Details"];
-  return labels.map((l, i) => {
-    const n = i + 1;
-    const cls = n < active ? "done" : n === active ? "active" : "";
-    return `<div class="step ${cls}"><span class="dot">${n < active ? "✓" : n}</span>${l}</div>${i < 3 ? '<span class="sep"></span>' : ""}`;
-  }).join("");
-}
-function renderStepsBar(active){ $("#stepsBar").innerHTML = stepsHtml(active); }
-
-function panel1(){
-  renderStepsBar(1);
-  $("#panels").innerHTML = `<div class="panel">
-    <h2>Choose a service</h2>
-    <p class="sub">Every price includes VAT. Select a service to continue.</p>
-    <div class="grid" id="svcGrid"></div>
-  </div>`;
-  $("#svcGrid").innerHTML = state.services.map((s) => `
-    <div class="choice" data-id="${s.id}">
-      <h3>${ICONS[s.icon] || "✂️"} ${esc(s.name)}</h3>
-      <p>${esc(s.description || "")}</p>
-      <div class="meta"><span class="dur">${s.duration_min} min</span><span class="price">${DB.money(s.price_pence)}</span></div>
-    </div>`).join("");
-  $$("#svcGrid .choice").forEach((el) => {
-    el.addEventListener("click", () => {
-      const svc = state.services.find((s) => s.id === +el.dataset.id);
-      selectService(svc);
-    });
+function closeBook(){$("#scrim").className="scrim";$("#modal").className="modal";document.body.style.overflow="";}
+function marks(){document.querySelectorAll(".stp").forEach(function(el){el.className="stp"+(Number(el.dataset.s)<=S.step?" on":"");});}
+function draw(){
+ marks();var h="";
+ if(S.step===1){$("#mtitle").textContent="Choose a service";
+  ["Colour","Cutting","Treatments"].forEach(function(c){
+   var l=S.services.filter(function(s){return catOf(s)===c;});if(!l.length)return;
+   h+="<div class=eyebrow style="+Q+"margin:18px 0 10px"+Q+">"+c+"</div>";
+   h+=l.map(function(s){return "<button class=opt data-pick="+Q+""+s.id+""+Q+"><span><strong>"+esc(s.name)+"</strong><small>"+dur(s.duration_min)+(s.deposit_pence>0?" &middot; "+gbp(s.deposit_pence)+" deposit":"")+"</small></span><span class=p>"+gbp(s.price_pence)+"</span></button>";}).join("");
   });
+ } else if(S.step===2){$("#mtitle").textContent="Choose a stylist";
+  if(S.svc.requires_patch_test)h+="<div class="+Q+"note patch"+Q+"><b>Patch test required.</b> Colour needs a skin test at least 48 hours before. We will check yours when you book and arrange one if it is out of date.</div>";
+  if(S.svc.deposit_pence>0)h+="<div class=note><b>"+gbp(S.svc.deposit_pence)+" deposit.</b> Taken when you book and deducted from the final bill.</div>";
+  h+="<button class=opt data-staff="+Q+"any"+Q+"><span><strong>No preference</strong><small>First available, best price</small></span></button>";
+  h+=S.stylists.map(function(b){return "<button class=opt data-staff="+Q+""+b.id+""+Q+"><span><strong>"+esc(b.name)+"</strong><small>"+esc(b.level||"")+" &middot; "+esc(b.specialties||"")+"</small></span><span class=p>"+(b.surcharge_pence>0?"+"+gbp(b.surcharge_pence):"—")+"</span></button>";}).join("");
+ } else if(S.step===3){$("#mtitle").textContent="Pick a time";
+  h+="<div class=dates id=dates></div><div id=slots><div class=spin>Choose a day…</div></div>";
+ } else if(S.step===4){$("#mtitle").textContent="Your details";
+  var st=S.staffId==="any"?null:S.stylists.filter(function(b){return b.id===Number(S.staffId);})[0];
+  var tot=S.svc.price_pence+(st?st.surcharge_pence:0);
+  h+="<div class=note style="+Q+"background:#fff;border-left-color:var(--plum)"+Q+"><b>"+esc(S.svc.name)+"</b> &middot; "+fmtDate(S.date)+" at "+fmtMin(S.min)+"<br>"+(st?esc(st.name)+" &middot; ":"")+gbp(tot)+(S.svc.deposit_pence>0?" &middot; "+gbp(S.svc.deposit_pence)+" deposit today":"")+"</div>";
+  h+="<div class=fld><label>Full name</label><input id=bname autocomplete=name></div>";
+  h+="<div class=fld><label>Email</label><input id=bemail type=email autocomplete=email></div>";
+  h+="<div class=fld><label>Phone</label><input id=bphone type=tel autocomplete=tel></div>";
+  h+="<div class=fld><label>Anything we should know</label><textarea id=bnotes rows=3 placeholder="+Q+"Previous colour, allergies, what you are after…"+Q+"></textarea></div>";
+  h+="<div class=err id=berr></div>";
+ }
+ var foot="";
+ if(S.step>1)foot+="<button class=back id=mback>Back</button>";
+ if(S.step===4)foot+="<button class=next id=mnext>Confirm booking</button>";
+ h+="<div class=mfoot>"+foot+"</div>";
+ $("#mstep").innerHTML=h;
+ if(S.step===3)buildDates();
 }
-function selectService(svc){
-  state.service = svc;
-  document.getElementById("book").scrollIntoView({ behavior:"smooth", block:"start" });
-  panel2();
+function buildDates(){
+ var out="",today=new Date();
+ for(var i=0;i<14;i++){
+  var d=new Date(today.getTime()+i*86400000);
+  if(d.getDay()===0)continue;
+  var iso=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  out+="<button class="+Q+"dpick"+(S.date===iso?" sel":"")+""+Q+" data-date="+Q+""+iso+""+Q+"><span>"+d.toLocaleDateString("en-GB",{weekday:"short"})+"</span><b>"+d.getDate()+"</b></button>";
+ }
+ $("#dates").innerHTML=out;if(S.date)loadSlots();
 }
-
-function panel2(){
-  renderStepsBar(2);
-  $("#panels").innerHTML = `<div class="panel">
-    <h2>Choose a stylist</h2>
-    <p class="sub">Pick a specific stylist, or let us find you the fastest slot.</p>
-    <div class="grid" id="stylistGrid"></div>
-    <div class="actions"><a class="btn ghost" id="b2back">Back</a></div>
-  </div>`;
-  const cards = [`<div class="choice person" data-id="any">
-      <div class="avatar" style="background:var(--gold);color:#171308">★</div>
-      <div><h3>Any available stylist</h3><p>Fastest available time</p></div>
-    </div>`].concat(state.stylists.map((b) => `
-    <div class="choice person" data-id="${b.id}">
-      <img class="avatar" src="${b.photo}" alt="${esc(b.name)}">
-      <div><h3>${esc(b.name)}</h3><p>${esc(b.title)}</p></div>
-    </div>`));
-  $("#stylistGrid").innerHTML = cards.join("");
-  $$("#stylistGrid .choice").forEach((el) => el.addEventListener("click", () => {
-    state.staffId = el.dataset.id;
-    panel3();
-  }));
-  $("#b2back").addEventListener("click", panel1);
+function loadSlots(){
+ $("#slots").innerHTML="<div class=spin>Checking availability…</div>";
+ var p=new URLSearchParams({date:S.date,serviceId:S.svc.id});
+ if(S.staffId!=="any")p.set("staffId",S.staffId);
+ fetch(API+"/availability?"+p).then(function(r){return r.json();}).then(function(j){
+  var slots=j.slots||[];
+  if(!slots.length){$("#slots").innerHTML="<div class=spin>Nothing free that day. Try another.</div>";return;}
+  $("#slots").innerHTML="<div class=slots>"+slots.map(function(m){var v=(typeof m==="object")?(m.min!=null?m.min:m.start):m;var lb=(m&&m.label)?m.label:fmtMin(v);return "<button class="+Q+"slot"+(S.min===v?" sel":"")+""+Q+" data-min="+Q+""+v+""+Q+">"+lb+"</button>";}).join("")+"</div>";
+ }).catch(function(){$("#slots").innerHTML="<div class=spin>Could not load times.</div>";});
 }
-
-function weekDates(startOffset){
-  const out = [];
-  const base = new Date();
-  base.setDate(base.getDate() + startOffset);
-  for (let i = 0; i < 7; i++){
-    const d = new Date(base); d.setDate(base.getDate() + i);
-    out.push(d.toISOString().slice(0,10));
-  }
-  return out;
+function submit(){
+ var n=$("#bname").value.trim(),e=$("#bemail").value.trim(),p=$("#bphone").value.trim();
+ var err=$("#berr");
+ if(!n||!e){err.textContent="Please add your name and email.";return;}
+ var btn=$("#mnext");btn.textContent="Booking…";btn.disabled=true;err.textContent="";
+ fetch(API+"/appointments",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({serviceId:S.svc.id,staffId:S.staffId,date:S.date,min:S.min,name:n,email:e,phone:p,notes:$("#bnotes").value.trim()})})
+ .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||"Booking failed.");return j;});})
+ .then(function(j){
+  $("#mtitle").textContent="You are booked in";
+  $("#mstep").innerHTML="<div class=done><div class=tick>&#10003;</div><h3>See you soon.</h3><p style="+Q+"color:var(--mute)"+Q+">A confirmation is on its way to "+esc(e)+", and we will text a reminder the day before.</p><div class=refbox>"+esc(j.ref||"BOOKED")+"</div><p style="+Q+"color:var(--mute);font-size:14px"+Q+">Keep this reference if you need to move it.</p><div class=mfoot><button class=next id=mdone>Done</button></div></div>";
+ }).catch(function(x){err.textContent=x.message;btn.textContent="Confirm booking";btn.disabled=false;});
 }
-let weekOffset = 0;
-async function panel3(){
-  renderStepsBar(3);
-  $("#panels").innerHTML = `<div class="panel">
-    <h2>Choose a date &amp; time</h2>
-    <p class="sub" id="slotContext"></p>
-    <div class="strip-nav">
-      <div class="iconbtn" id="weekPrev">‹</div>
-      <div class="label" id="weekLabel"></div>
-      <div class="iconbtn" id="weekNext">›</div>
-    </div>
-    <div class="datestrip" id="datestrip"></div>
-    <div id="periods"></div>
-    <div class="waitbox hidden" id="waitbox"><p id="waitboxText"></p><a class="btn ghost" id="joinWaitBtn">Join the waitlist</a></div>
-    <div class="actions"><a class="btn ghost" id="b3back">Back</a><a class="btn primary" id="s3next" disabled>Continue</a></div>
-  </div>`;
-  const who = state.staffId === "any" ? "any available stylist" : state.stylists.find((b) => b.id === +state.staffId).name;
-  $("#slotContext").textContent = `${state.service.name} (${state.service.duration_min} min) · ${who}`;
-  $("#b3back").addEventListener("click", panel2);
-  $("#weekPrev").addEventListener("click", () => { if (weekOffset > 0){ weekOffset -= 7; loadWeek(); } });
-  $("#weekNext").addEventListener("click", () => { weekOffset += 7; loadWeek(); });
-  $("#joinWaitBtn").addEventListener("click", openWaitlistModal);
-  $("#s3next").addEventListener("click", () => { if (state.slotMin != null) panel4(); });
-  weekOffset = 0;
-  await loadWeek(true);
-}
-async function loadWeek(autoPick){
-  const dates = weekDates(weekOffset);
-  $("#weekLabel").textContent = new Date(dates[0] + "T12:00:00Z").toLocaleDateString("en-GB", { month:"long", year:"numeric" });
-  $("#weekPrev").style.opacity = weekOffset === 0 ? .35 : 1;
-  const counts = await DB.dayCounts(state.service.id, state.staffId, dates[0], dates[dates.length-1]);
-  $("#datestrip").innerHTML = dates.map((d) => {
-    const c = counts[d] || 0;
-    const dt = new Date(d + "T12:00:00Z");
-    return `<div class="day ${c === 0 ? "off" : ""}" data-date="${d}">
-      <div class="dw">${dt.toLocaleDateString("en-GB",{weekday:"short"})}</div>
-      <div class="dn">${dt.getDate()}</div>
-      <div class="cnt">${c === 0 ? "Full" : c + " slots"}</div>
-    </div>`;
-  }).join("");
-  $$("#datestrip .day").forEach((el) => el.addEventListener("click", () => {
-    if (el.classList.contains("off")) return;
-    $$("#datestrip .day").forEach((x) => x.classList.remove("sel"));
-    el.classList.add("sel");
-    state.date = el.dataset.date;
-    loadSlots();
-  }));
-  if (autoPick){
-    const first = Object.entries(counts).find(([,c]) => c > 0);
-    if (first){
-      state.date = first[0];
-      const el = $(`#datestrip .day[data-date="${first[0]}"]`);
-      if (el) el.classList.add("sel");
-      loadSlots();
-    } else {
-      $("#periods").innerHTML = `<div class="empty">No availability this week — try the arrows to look further ahead.</div>`;
-      setWaitbox(true);
-    }
-  }
-}
-function setWaitbox(empty){
-  $("#waitboxText").innerHTML = empty
-    ? `<b>Nothing free that day.</b> Join the waitlist and we'll be in touch the moment a slot opens up.`
-    : `<b>Want an earlier spot?</b> Join the waitlist in case something opens up sooner.`;
-  $("#waitbox").classList.remove("hidden");
-}
-async function loadSlots(){
-  state.slotMin = null; state.slotStaffId = null;
-  $("#s3next").disabled = true;
-  const box = $("#periods");
-  box.innerHTML = `<div class="empty">Loading…</div>`;
-  const slots = await DB.availability(state.date, state.service.id, state.staffId);
-  if (!slots.length){ box.innerHTML = ""; setWaitbox(true); return; }
-  setWaitbox(false);
-  const groups = { Morning:[], Afternoon:[], Evening:[] };
-  slots.forEach((s) => { const g = s.min < 720 ? "Morning" : s.min < 1020 ? "Afternoon" : "Evening"; groups[g].push(s); });
-  box.innerHTML = Object.entries(groups).filter(([,v]) => v.length).map(([g, v]) => `
-    <div class="period"><h4>${g}</h4><div class="slots">
-    ${v.map((s) => `<div class="slot" data-min="${s.min}" data-stylist="${s.staffIds[0]}">${s.label}</div>`).join("")}
-    </div></div>`).join("");
-  $$("#periods .slot").forEach((el) => el.addEventListener("click", () => {
-    $$("#periods .slot").forEach((x) => x.classList.remove("sel"));
-    el.classList.add("sel");
-    state.slotMin = +el.dataset.min;
-    state.slotStaffId = +el.dataset.stylist;
-    $("#s3next").disabled = false;
-  }));
-}
-
-function chosenStylist(){
-  const id = state.staffId === "any" ? state.slotStaffId : +state.staffId;
-  return state.stylists.find((b) => b.id === id);
-}
-const prettyDate = (s) => new Date(s + "T12:00:00Z").toLocaleDateString("en-GB", { weekday:"long", day:"numeric", month:"long" });
-function fillSummary(sel){
-  const b = chosenStylist(), s = state.service;
-  $(sel).innerHTML = `
-    <div><span class="k">Service</span><span class="v">${esc(s.name)}</span></div>
-    <div><span class="k">Stylist</span><span class="v">${esc(b.name)}</span></div>
-    <div><span class="k">Date</span><span class="v">${prettyDate(state.date)}</span></div>
-    <div><span class="k">Time</span><span class="v">${DB.fmt(state.slotMin)} (${s.duration_min} min)</span></div>
-    <div><span class="k">Price</span><span class="v">${DB.money(s.price_pence)}</span></div>`;
-}
-function panel4(){
-  renderStepsBar(4);
-  $("#panels").innerHTML = `<div class="panel">
-    <h2>Your details</h2>
-    <p class="sub">We'll send your booking reference to this email.</p>
-    <div class="summary" id="summary4"></div>
-    <div class="field"><label>Full name</label><input type="text" id="pname" placeholder="John Smith"></div>
-    <div class="row">
-      <div class="field"><label>Email</label><input type="email" id="pemail" placeholder="john@email.com"></div>
-      <div class="field"><label>Phone</label><input type="tel" id="pphone" placeholder="07123 456789"></div>
-    </div>
-    <div class="field"><label>Notes for your stylist (optional)</label><textarea id="pnotes" rows="2" placeholder="e.g. keep the sides tight, allergic to certain products…"></textarea></div>
-    <div class="notice err hidden" id="err4"></div>
-    <div class="actions"><a class="btn ghost" id="b4back">Back</a><a class="btn primary" id="b4submit">Confirm booking</a></div>
-  </div>`;
-  fillSummary("#summary4");
-  $("#b4back").addEventListener("click", panel3);
-  $("#b4submit").addEventListener("click", submitBooking);
-}
-function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-async function submitBooking(){
-  const err = $("#err4");
-  err.classList.add("hidden");
-  ["#pname","#pemail","#pphone"].forEach((s) => $(s).classList.remove("invalid"));
-  const name = $("#pname").value.trim(), email = $("#pemail").value.trim(), phone = $("#pphone").value.trim();
-  const problems = [];
-  if (name.length < 2){ problems.push("your full name"); $("#pname").classList.add("invalid"); }
-  if (!validEmail(email)){ problems.push("a valid email"); $("#pemail").classList.add("invalid"); }
-  if (phone.replace(/\D/g,"").length < 7){ problems.push("a valid phone number"); $("#pphone").classList.add("invalid"); }
-  if (state.slotMin == null || !state.date){ problems.push("a valid time slot"); }
-  if (problems.length){
-    err.textContent = `Please check: ${problems.join(", ")}.`;
-    err.classList.remove("hidden");
-    return;
-  }
-  const btn = $("#b4submit");
-  btn.textContent = "Booking…"; btn.style.pointerEvents = "none";
-  try{
-    const result = await DB.book({
-      serviceId: state.service.id, staffId: state.staffId, date: state.date, min: state.slotMin,
-      name, email, phone, notes: $("#pnotes").value.trim()
-    });
-    panelConfirm(result);
-  } catch(e){
-    err.textContent = e.message;
-    err.classList.remove("hidden");
-    btn.textContent = "Confirm booking"; btn.style.pointerEvents = "auto";
-  }
-}
-function panelConfirm(result){
-  $("#stepsBar").innerHTML = "";
-  $("#panels").innerHTML = `<div class="panel confirm">
-    <div class="tick">✓</div>
-    <h2>You're booked in.</h2>
-    <p class="sub">${esc(result.when)} with ${esc(result.stylistName)}</p>
-    <div class="refbox">${esc(result.ref)}</div>
-    <p class="hint">Keep this reference and your email handy to manage your booking.</p>
-    <div class="confirm-actions">
-      <a class="btn ghost" href="#services">Book another</a>
-      <a class="btn primary" href="#" id="doneClose">Done</a>
-    </div>
-  </div>`;
-  $("#doneClose").addEventListener("click", (e) => { e.preventDefault(); document.getElementById("services").scrollIntoView({behavior:"smooth"}); });
-}
-
-/* ================= waitlist modal ================= */
-function openWaitlistModal(){
-  $("#modalRoot").innerHTML = `<div class="backdrop" id="waitBackdrop"><div class="modal">
-    <header><h3>Join the waitlist</h3><span class="iconbtn" id="waitClose">&times;</span></header>
-    <div class="body">
-      <p class="sub" style="margin-top:0">We'll contact you if a slot opens for ${esc(state.service?.name || "your service")} on ${state.date ? prettyDate(state.date) : "your preferred day"}.</p>
-      <div class="field"><label>Full name</label><input type="text" id="wname"></div>
-      <div class="field"><label>Email</label><input type="email" id="wemail"></div>
-      <div class="field"><label>Phone</label><input type="tel" id="wphone"></div>
-      <div class="notice err hidden" id="werr"></div>
-    </div>
-    <footer><a class="btn ghost" id="waitCancel">Cancel</a><a class="btn primary" id="waitSubmit">Join waitlist</a></footer>
-  </div></div>`;
-  $("#waitClose").addEventListener("click", closeWaitlistModal);
-  $("#waitCancel").addEventListener("click", closeWaitlistModal);
-  $("#waitBackdrop").addEventListener("click", (e) => { if (e.target.id === "waitBackdrop") closeWaitlistModal(); });
-  $("#waitSubmit").addEventListener("click", async () => {
-    const err = $("#werr");
-    const name = $("#wname").value.trim(), email = $("#wemail").value.trim(), phone = $("#wphone").value.trim();
-    if (name.length < 2 || !validEmail(email) || phone.replace(/\D/g,"").length < 7){
-      err.textContent = "Please fill in your name, a valid email and phone number.";
-      err.classList.remove("hidden");
-      return;
-    }
-    try{
-      await DB.waitlist({ serviceId: state.service?.id, staffId: state.staffId, date: state.date, name, email, phone });
-      $(".modal .body").innerHTML = `<div class="confirm"><div class="tick">✓</div><h2 style="font-size:18px">You're on the list</h2><p class="sub">We'll email you the moment a suitable slot opens up.</p></div>`;
-      $(".modal footer").innerHTML = `<a class="btn primary" style="width:100%" id="waitDone">Done</a>`;
-      $("#waitDone").addEventListener("click", closeWaitlistModal);
-    } catch(e){
-      err.textContent = e.message;
-      err.classList.remove("hidden");
-    }
-  });
-}
-function closeWaitlistModal(){ $("#modalRoot").innerHTML = ""; }
-
-/* ================= manage booking modal ================= */
-function openManageModal(){
-  $("#modalRoot").innerHTML = `<div class="backdrop" id="mgBackdrop"><div class="modal">
-    <header><h3>Manage your booking</h3><span class="iconbtn" id="mgClose">&times;</span></header>
-    <div class="body" id="mgBody">
-      <p class="sub" style="margin-top:0">Enter your booking reference and email to view or cancel your appointment.</p>
-      <div class="field"><label>Booking reference</label><input type="text" id="mgRef" placeholder="e.g. K7M2QX" style="text-transform:uppercase"></div>
-      <div class="field"><label>Email</label><input type="email" id="mgEmail"></div>
-      <div class="notice err hidden" id="mgErr"></div>
-    </div>
-    <footer id="mgFooter"><a class="btn ghost" id="mgCancelBtn">Close</a><a class="btn primary" id="mgLookup">Find booking</a></footer>
-  </div></div>`;
-  $("#mgClose").addEventListener("click", closeManageModal);
-  $("#mgCancelBtn").addEventListener("click", closeManageModal);
-  $("#mgBackdrop").addEventListener("click", (e) => { if (e.target.id === "mgBackdrop") closeManageModal(); });
-  $("#mgLookup").addEventListener("click", async () => {
-    const err = $("#mgErr");
-    const ref = $("#mgRef").value.trim(), email = $("#mgEmail").value.trim();
-    if (!ref || !validEmail(email)){ err.textContent = "Please enter your reference and a valid email."; err.classList.remove("hidden"); return; }
-    try{
-      const b = await DB.lookup(ref, email);
-      $("#mgBody").innerHTML = `
-        <div class="summary">
-          <div><span class="k">Service</span><span class="v">${esc(b.serviceName)}</span></div>
-          <div><span class="k">Stylist</span><span class="v">${esc(b.stylistName)}</span></div>
-          <div><span class="k">When</span><span class="v">${esc(b.when)}</span></div>
-          <div><span class="k">Reference</span><span class="v">${esc(b.ref)}</span></div>
-        </div>
-        <div class="notice err hidden" id="mgErr2"></div>`;
-      $("#mgFooter").innerHTML = `<a class="btn ghost" id="mgCancelBtn2">Close</a><a class="link-danger" id="mgCancelAppt">Cancel this booking</a>`;
-      $("#mgCancelBtn2").addEventListener("click", closeManageModal);
-      $("#mgCancelAppt").addEventListener("click", async () => {
-        if (!confirm("Cancel this appointment? This cannot be undone.")) return;
-        try{
-          await DB.cancel(ref, email);
-          $("#mgBody").innerHTML = `<div class="confirm"><div class="tick">✓</div><h2 style="font-size:18px">Booking cancelled</h2><p class="sub">Your appointment has been cancelled. We hope to see you again soon.</p></div>`;
-          $("#mgFooter").innerHTML = `<a class="btn primary" style="width:100%" id="mgDone">Done</a>`;
-          $("#mgDone").addEventListener("click", closeManageModal);
-        } catch(e){
-          $("#mgErr2").textContent = e.message;
-          $("#mgErr2").classList.remove("hidden");
-        }
-      });
-    } catch(e){
-      err.textContent = e.message;
-      err.classList.remove("hidden");
-    }
-  });
-}
-function closeManageModal(){ $("#modalRoot").innerHTML = ""; }
-$("#manageLink").addEventListener("click", (e) => { e.preventDefault(); openManageModal(); });
-
-/* ================= boot ================= */
-(async function boot(){
-  try{
-    const [services, stylists] = await Promise.all([DB.services(), DB.stylists()]);
-    state.services = services; state.stylists = stylists;
-    renderServices(services);
-    renderTeam(stylists);
-    renderGallery();
-    renderReviews();
-    panel1();
-  } catch(e){
-    $("#panels").innerHTML = `<div class="panel"><div class="notice err">Unable to load live booking data right now. Please call us on 0114 272 4180.</div></div>`;
-    console.error(e);
-  }
-})();
-</script>
-<!-- Sorted Sites lead-capture chatbot -->
-<script>
-window.SS_CHAT = { business: CONFIG.brand.name, crmEndpoint: "https://the-gilded-room-api.luke1999-turner.workers.dev", phone: CONFIG.business.phone, accent: CONFIG.chat.accent, accent2: CONFIG.chat.accent2, area: CONFIG.chat.area, services: CONFIG.chat.services, knowledge: CONFIG.chat.knowledge, greeting: CONFIG.chat.greeting, bookHref: "#book" };
-</script>
-<style>
-.ssc-launch{position:fixed;right:20px;bottom:20px;z-index:99998;display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Inter',system-ui,sans-serif}
-.ssc-launch .b{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--ssc-acc2,#6fd6ff),var(--ssc-acc,#33c2ff));box-shadow:0 12px 30px -8px rgba(0,0,0,.55);transition:.25s}
-.ssc-launch .b:hover{transform:translateY(-3px) scale(1.05)}
-.ssc-launch .b svg{width:28px;height:28px;stroke:#fff;fill:none}
-.ssc-launch .lab{background:#fff;color:#0b1118;font-weight:600;font-size:.88rem;padding:9px 14px;border-radius:999px;box-shadow:0 8px 22px -8px rgba(0,0,0,.4)}
-@media(max-width:560px){.ssc-launch .lab{display:none}}
-.ssc-panel{position:fixed;right:20px;bottom:20px;z-index:99999;width:372px;max-width:calc(100vw - 32px);height:566px;max-height:calc(100vh - 40px);background:#0b1118;border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 30px 80px -20px rgba(0,0,0,.75);display:none;flex-direction:column;overflow:hidden;font-family:'Inter',system-ui,sans-serif}
-.ssc-panel.open{display:flex}
-.ssc-head{padding:15px 18px;background:linear-gradient(135deg,var(--ssc-acc,#33c2ff),var(--ssc-acc2,#5b8cff));color:#fff;display:flex;align-items:center;justify-content:space-between}
-.ssc-head .t{font-weight:800;font-size:1.02rem;line-height:1.1}
-.ssc-head .s{font-size:.74rem;opacity:.9;font-weight:600;margin-top:2px}
-.ssc-head .x{cursor:pointer;font-size:1.5rem;font-weight:700;line-height:1;padding:0 4px}
-.ssc-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
-.ssc-msg{max-width:84%;padding:11px 14px;border-radius:15px;font-size:.92rem;line-height:1.45;animation:sscIn .25s ease}
-@keyframes sscIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.ssc-bot{align-self:flex-start;background:#1a2230;color:#eaf1f8;border-bottom-left-radius:5px}
-.ssc-user{align-self:flex-end;background:linear-gradient(135deg,var(--ssc-acc,#33c2ff),var(--ssc-acc2,#5b8cff));color:#fff;font-weight:600;border-bottom-right-radius:5px}
-.ssc-qr{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start;max-width:100%}
-.ssc-qr button{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#eaf1f8;font:inherit;font-size:.85rem;padding:8px 13px;border-radius:999px;cursor:pointer;transition:.2s}
-.ssc-qr button:hover{background:rgba(255,255,255,.12);border-color:var(--ssc-acc,#33c2ff);transform:translateY(-1px)}
-.ssc-cta{display:flex;flex-direction:column;gap:8px;align-self:stretch;margin-top:2px}
-.ssc-cta a{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;padding:13px;border-radius:12px;font-size:.92rem}
-.ssc-wa{background:#25d366;color:#04210f}
-.ssc-call{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff}
-.ssc-foot{padding:11px 14px;border-top:1px solid rgba(255,255,255,.08);display:none;gap:8px}
-.ssc-foot input{flex:1;background:#121a26;border:1px solid rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:10px 15px;font:inherit;font-size:.9rem;outline:none}
-.ssc-foot input:focus{border-color:var(--ssc-acc,#33c2ff)}
-.ssc-foot .send{width:42px;height:42px;flex:none;border-radius:50%;border:none;background:linear-gradient(135deg,var(--ssc-acc,#33c2ff),var(--ssc-acc2,#5b8cff));color:#fff;font-size:1.05rem;cursor:pointer}
-.ssc-brand{text-align:center;font-size:.66rem;color:#5f6b7c;padding:8px}
-.ssc-msg a{color:var(--ssc-acc,#33c2ff);font-weight:600}
-</style>
-<script>
-(function(){
-  var C=window.SS_CHAT||{};
-  var LEAD_ENDPOINT=C.leadEndpoint||"https://sorted-leads.luke1999-turner.workers.dev";
-  var CRM_ENDPOINT=C.crmEndpoint||"";
-  var business=C.business||"us";
-  var telRaw=C.phone||"";
-  var tel=telRaw.replace(/[^0-9+]/g,"");
-  var disp=C.phoneDisplay||C.phone||tel;
-  var wa=tel.replace(/[^0-9]/g,"");
-  if(wa.charAt(0)==='0')wa='44'+wa.slice(1);
-  var acc=C.accent||'#33c2ff', acc2=C.accent2||acc;
-  var greeting=C.greeting||("Hi! 👋 Thanks for stopping by "+business+". Want to book, or have a quick question first?");
-  var bookHref=C.bookHref||"#book";
-  var knowledge=C.knowledge||[];
-  var areaText=C.area||"";
-  var servicesForAI=C.services||[];
-  var AI_ENDPOINT=LEAD_ENDPOINT.replace(/\/$/,"")+"/ai-chat";
-  var history=[];
-  var JUNK=['help','test','testing','tester','asdf','asdfgh','asdfghjkl','qwerty','qwe','none','na','n/a','nonsense','idk','dunno','hi','hiya','hello','hey','yes','no','ok','okay','abc','abcd','aaa','aaaa','xxx','blah','stuff','thing','whatever'];
-  var de=document.documentElement;
-  de.style.setProperty('--ssc-acc',acc);
-  de.style.setProperty('--ssc-acc2',acc2);
-  function vPhone(v){var d=v.replace(/[^\d+]/g,'');if(/^(?:0\d{9,10}|\+44\d{9,10})$/.test(d))return v.trim();return false;}
-  function vName(v){var t=v.trim();if(t.length<2)return false;if(/^\d+$/.test(t))return false;if(!/^[a-zA-Z][a-zA-Z '\-]*$/.test(t))return false;if(JUNK.indexOf(t.toLowerCase())>=0)return false;if(t.length>3&&!/[aeiouAEIOU]/.test(t))return false;return t;}
-  function vFree(v){var t=v.trim();if(t.length<2)return false;if(JUNK.indexOf(t.toLowerCase())>=0)return false;return t;}
-  var launch=document.createElement('div');launch.className='ssc-launch';
-  launch.innerHTML='<span class="lab">💬 Quick question?</span><span class="b"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 8.6 8.6 0 0 1-3.9-.9L3 20l1.1-4.1A8.3 8.3 0 0 1 3 11.5 8.4 8.4 0 0 1 11.5 3 8.4 8.4 0 0 1 21 11.5Z"/></svg></span>';
-  var panel=document.createElement('div');panel.className='ssc-panel';
-  panel.innerHTML='<div class="ssc-head"><div><div class="t">'+business+'</div><div class="s">⚡ Typically replies in minutes</div></div><div class="x" id="sscx">×</div></div><div class="ssc-body" id="sscbody"></div><div class="ssc-foot" id="sscfoot"><input id="sscin" placeholder="Type your answer…" autocomplete="off"><button class="send" id="sscsend">➤</button></div><div class="ssc-brand">Powered by Sorted Sites</div>';
-  document.body.appendChild(launch);document.body.appendChild(panel);
-  var body=panel.querySelector('#sscbody'), foot=panel.querySelector('#sscfoot'), input=panel.querySelector('#sscin');
-  var data={reason:'',question:'',name:'',phone:''}, started=false, current=null;
-  function scroll(){body.scrollTop=body.scrollHeight;}
-  function open(){panel.classList.add('open');launch.style.display='none';if(!started){started=true;begin();}}
-  function close(){panel.classList.remove('open');launch.style.display='flex';}
-  launch.onclick=open; panel.querySelector('#sscx').onclick=close;
-  function bot(html,cb){var m=document.createElement('div');m.className='ssc-msg ssc-bot';m.textContent='…';body.appendChild(m);scroll();setTimeout(function(){m.innerHTML=html;scroll();if(cb)cb();},550);}
-  function user(text){var m=document.createElement('div');m.className='ssc-msg ssc-user';m.textContent=text;body.appendChild(m);scroll();}
-  function quick(options,onPick){setTimeout(function(){var wrap=document.createElement('div');wrap.className='ssc-qr';options.forEach(function(o){var b=document.createElement('button');b.textContent=o;b.onclick=function(){wrap.remove();user(o);onPick(o);};wrap.appendChild(b);});body.appendChild(wrap);scroll();},650);}
-  function ask(promptHtml,key,validator,hint,next){bot(promptHtml,function(){foot.style.display='flex';input.focus();current={key:key,validator:validator,hint:hint,next:next,tries:0};});}
-  function submitInput(){
-    var v=input.value.trim();if(!v||!current)return;input.value='';user(v);
-    var res=current.validator?current.validator(v):v;
-    if(res===false){
-      current.tries++;
-      var extra=(current.tries>=2&&tel)?' If it’s easier, just give us a ring 👉 <a href="tel:'+tel+'">'+(disp||'call us')+'</a>':'';
-      bot(current.hint+extra,function(){input.focus();});
-      return;
-    }
-    data[current.key]=(res===true?v:res);
-    var n=current.next;current=null;foot.style.display='none';n();
-  }
-  panel.querySelector('#sscsend').onclick=submitInput;
-  input.addEventListener('keydown',function(e){if(e.key==='Enter')submitInput();});
-  function goBook(){
-    bot("Great — you can book straight away just below 👇",function(){
-      var cta=document.createElement('div');cta.className='ssc-cta';var h='';
-      h+='<a style="background:linear-gradient(135deg,var(--ssc-acc,#33c2ff),var(--ssc-acc2,#5b8cff));color:#04120f" href="'+bookHref+'" id="sscbooklink">📅 Go to booking</a>';
-      if(tel)h+='<a class="ssc-call" href="tel:'+tel+'">📞 Call '+(disp||'')+'</a>';
-      cta.innerHTML=h;body.appendChild(cta);scroll();
-      var bl=document.getElementById('sscbooklink');
-      if(bl)bl.addEventListener('click',function(){close();});
-    });
-  }
-  function begin(){
-    bot(greeting,function(){
-      quick(['Book an appointment','Ask a question','Something else'],function(pick){
-        if(pick==='Book an appointment'){goBook();}
-        else{data.reason=pick;askQuestion();}
-      });
-    });
-  }
-  function askQuestion(){ask("No problem — what’s your question, in a few words?","question",vFree,"Just pop in a quick line about what you need and I’ll pass it straight on.",function(){callAI(data.question);});}
-  function callAI(q){
-    var m=document.createElement('div');m.className='ssc-msg ssc-bot';m.textContent='…';body.appendChild(m);scroll();
-    var reqHistory=history.slice();
-    history.push({role:'user',content:q});
-    fetch(AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({business:business,services:servicesForAI,area:areaText,message:q,history:reqHistory,knowledge:knowledge})})
-      .then(function(r){return r.json();})
-      .then(function(d){
-        var reply=(d&&d.reply)?d.reply:aiFallback();
-        history.push({role:'assistant',content:reply});
-        m.innerHTML=reply;scroll();
-        quick(["Leave my number","Ask another question","No thanks, I’m done"],handleAIPick);
-      })
-      .catch(function(){
-        var reply=aiFallback();
-        m.innerHTML=reply;scroll();
-        quick(["Leave my number","No thanks, I’m done"],handleAIPick);
-      });
-  }
-  function aiFallback(){return "Good question — best to leave your number and "+business+" can confirm that for you personally.";}
-  function handleAIPick(pick){
-    if(pick==='Leave my number'){askName();}
-    else if(pick==='Ask another question'){askQuestion();}
-    else{bot("No worries — "+business+" is just a message away if you change your mind 👍");}
-  }
-  function askName(){ask("Thanks! And what’s your name?","name",vName,"Sorry, I didn’t quite catch that — what’s your first name?",askPhone);}
-  function askPhone(){ask("Great, "+data.name+"! What’s the best number to reach you on?","phone",vPhone,"That doesn’t look like a phone number 📞 — could you pop it in, e.g. 07700 900123?",finish);}
-  function sendLead(){
-    if(!LEAD_ENDPOINT)return;
-    try{fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({business:business,service:data.reason+' — '+data.question,postcode:'',name:data.name,phone:data.phone,site:location.hostname,time:new Date().toISOString()})});}catch(e){}
-    if(CRM_ENDPOINT){
-      try{fetch(CRM_ENDPOINT.replace(/\/$/,'')+'/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contactName:data.name,phone:data.phone,source:'chatbot',intent:(data.reason?data.reason+' — ':'')+data.question})});}catch(e){}
-    }
-  }
-  function finish(){
-    sendLead();
-    bot("Perfect — got everything I need:<br><br>💬 <b>"+data.question+"</b><br>👤 "+data.name+"<br>📞 "+data.phone+"<br><br>"+business+" has your details and will be straight in touch 👍 Want to reach us now?",function(){
-      var msg=encodeURIComponent("Hi "+business+"! "+data.question+"\nName: "+data.name+"\nNumber: "+data.phone);
-      var cta=document.createElement('div');cta.className='ssc-cta';var h='';
-      if(wa)h+='<a class="ssc-wa" href="https://wa.me/'+wa+'?text='+msg+'" target="_blank" rel="noopener">💬 Message on WhatsApp</a>';
-      if(tel)h+='<a class="ssc-call" href="tel:'+tel+'">📞 Call '+(disp||'')+'</a>';
-      cta.innerHTML=h;body.appendChild(cta);scroll();
-    });
-  }
-})();
+document.addEventListener("click",function(ev){
+ var t=ev.target;
+ if(t.closest("[data-book]")){openBook(null);return;}
+ var sb=t.closest("[data-svc]");if(sb){openBook(sb.dataset.svc);return;}
+ var tab=t.closest("[data-cat]");if(tab){S.cat=tab.dataset.cat;renderTabs();renderSvc();return;}
+ var pk=t.closest("[data-pick]");if(pk){S.svc=S.services.filter(function(x){return x.id===Number(pk.dataset.pick);})[0];S.step=2;draw();return;}
+ var stf=t.closest("[data-staff]");if(stf){S.staffId=stf.dataset.staff;S.step=3;draw();return;}
+ var dt=t.closest("[data-date]");if(dt){S.date=dt.dataset.date;S.min=null;buildDates();loadSlots();return;}
+ var sl=t.closest("[data-min]");if(sl){S.min=Number(sl.dataset.min);S.step=4;draw();return;}
+ if(t.closest("#mback")){S.step=Math.max(1,S.step-1);draw();return;}
+ if(t.closest("#mnext")){submit();return;}
+ if(t.closest("#mdone")||t.closest("#mclose")||t.id==="scrim"){closeBook();return;}
+});
+loadData();
 </script>
 </body>
 </html>
