@@ -228,7 +228,7 @@ var S={services:[],stylists:[],cat:"Colour",step:1,svc:null,staffId:"any",date:n
 function $(s){return document.querySelector(s);}
 function esc(t){var s=String(t==null?"":t);s=s.split("&").join("&amp;");s=s.split("<").join("&lt;");s=s.split(">").join("&gt;");s=s.split(String.fromCharCode(34)).join("&quot;");s=s.split(String.fromCharCode(39)).join(""+Q+"");return s;}
 function gbp(p){return "£"+(p/100).toFixed(0);}
-function dur(m){return m>=60?(m/60)+"h"+(m%60?" "+(m%60)+"m":""):m+" min";}
+function dur(m){if(m<60)return m+" min";var h=Math.round((m/60)*10)/10;return h+"h";}
 function catOf(s){if(s.requires_patch_test)return "Colour";if(/cut|restyle/i.test(s.name))return "Cutting";return "Treatments";}
 function fmtMin(m){var hh=Math.floor(m/60),mm=m%60;return (hh<10?"0":"")+hh+":"+(mm<10?"0":"")+mm;}
 function fmtDate(d){return new Date(d+"T00:00:00").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"});}
