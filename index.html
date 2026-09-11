@@ -142,6 +142,13 @@ footer li{list-style:none;margin-bottom:9px}
 .dpick.sel{background:var(--plum);color:#fff;border-color:var(--plum)}
 .dpick b{display:block;font-size:17px;font-weight:500}
 .dpick span{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.weekbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.wnav{width:38px;height:38px;border:1px solid var(--line);background:var(--paper);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;color:var(--ink);font-family:var(--sans)}
+.wnav:hover{border-color:var(--plum)}
+.wlabel{font-family:var(--serif);font-size:17px}
+.dpick .cnt{display:block;font-size:9.5px;font-style:normal;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-top:3px}
+.dpick.off{opacity:.38;cursor:not-allowed}
+.dpick.off:hover{border-color:var(--line)}
 .spin{text-align:center;color:var(--mute);padding:30px;font-size:14px}
 </style>
 </head>
@@ -224,7 +231,7 @@ footer li{list-style:none;margin-bottom:9px}
 <script>
 var API="https://the-gilded-room-api.luke1999-turner.workers.dev/api";
 var Q=String.fromCharCode(39);
-var S={services:[],stylists:[],cat:"Colour",step:1,svc:null,staffId:"any",date:null,min:null};
+var S={services:[],stylists:[],cat:"Colour",step:1,svc:null,staffId:"any",date:null,min:null,week:0};
 function $(s){return document.querySelector(s);}
 function esc(t){var s=String(t==null?"":t);s=s.split("&").join("&amp;");s=s.split("<").join("&lt;");s=s.split(">").join("&gt;");s=s.split(String.fromCharCode(34)).join("&quot;");s=s.split(String.fromCharCode(39)).join(""+Q+"");return s;}
 function gbp(p){return "£"+(p/100).toFixed(0);}
@@ -277,6 +284,7 @@ function draw(){
   h+="<button class=opt data-staff="+Q+"any"+Q+"><span><strong>No preference</strong><small>First available, best price</small></span></button>";
   h+=S.stylists.map(function(b){return "<button class=opt data-staff="+Q+""+b.id+""+Q+"><span><strong>"+esc(b.name)+"</strong><small>"+esc(b.level||"")+" &middot; "+esc(b.specialties||"")+"</small></span><span class=p>"+(b.surcharge_pence>0?"+"+gbp(b.surcharge_pence):"—")+"</span></button>";}).join("");
  } else if(S.step===3){$("#mtitle").textContent="Pick a time";
+  h+="<div class=weekbar><button class=wnav id=wprev aria-label=Previous>&#8249;</button><div class=wlabel id=wlabel></div><button class=wnav id=wnext aria-label=Next>&#8250;</button></div>";
   h+="<div class=dates id=dates></div><div id=slots><div class=spin>Choose a day…</div></div>";
  } else if(S.step===4){$("#mtitle").textContent="Your details";
   var st=S.staffId==="any"?null:S.stylists.filter(function(b){return b.id===Number(S.staffId);})[0];
@@ -295,15 +303,36 @@ function draw(){
  $("#mstep").innerHTML=h;
  if(S.step===3)buildDates();
 }
+function isoOf(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function weekDates(off){
+ var out=[],base=new Date();base.setHours(12,0,0,0);
+ base=new Date(base.getTime()+off*7*86400000);
+ for(var i=0;i<7;i++){out.push(new Date(base.getTime()+i*86400000));}
+ return out;
+}
 function buildDates(){
- var out="",today=new Date();
- for(var i=0;i<14;i++){
-  var d=new Date(today.getTime()+i*86400000);
-  if(d.getDay()===0)continue;
-  var iso=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-  out+="<button class="+Q+"dpick"+(S.date===iso?" sel":"")+""+Q+" data-date="+Q+""+iso+""+Q+"><span>"+d.toLocaleDateString("en-GB",{weekday:"short"})+"</span><b>"+d.getDate()+"</b></button>";
- }
- $("#dates").innerHTML=out;if(S.date)loadSlots();
+ var ds=weekDates(S.week);
+ var lbl=ds[0].toLocaleDateString("en-GB",{month:"long",year:"numeric"});
+ if(ds[0].getMonth()!==ds[6].getMonth()) lbl=ds[0].toLocaleDateString("en-GB",{month:"short"})+" – "+ds[6].toLocaleDateString("en-GB",{month:"short",year:"numeric"});
+ var wl=$("#wlabel"); if(wl) wl.textContent=lbl;
+ var wp=$("#wprev"); if(wp) wp.style.opacity=S.week===0?".3":"1";
+ $("#dates").innerHTML=ds.map(function(d){
+  return "<button class="+Q+"dpick"+(S.date===isoOf(d)?" sel":"")+Q+" data-date="+Q+isoOf(d)+Q+"><span>"+d.toLocaleDateString("en-GB",{weekday:"short"})+"</span><b>"+d.getDate()+"</b><i class=cnt>&nbsp;</i></button>";
+ }).join("");
+ var from=isoOf(ds[0]), to=isoOf(ds[6]);
+ var p=new URLSearchParams({serviceId:S.svc.id,from:from,to:to});
+ if(S.staffId!=="any")p.set("staffId",S.staffId);
+ fetch(API+"/day-counts?"+p).then(function(r){return r.json();}).then(function(counts){
+  ds.forEach(function(d){
+   var iso=isoOf(d), c=counts[iso]||0;
+   var el=document.querySelector("[data-date="+Q+iso+Q+"]");
+   if(!el)return;
+   var ci=el.querySelector(".cnt");
+   if(ci) ci.textContent=c===0?"Full":(c+" free");
+   if(c===0) el.classList.add("off");
+  });
+ }).catch(function(){});
+ if(S.date)loadSlots();
 }
 function loadSlots(){
  $("#slots").innerHTML="<div class=spin>Checking availability…</div>";
@@ -334,7 +363,9 @@ document.addEventListener("click",function(ev){
  var tab=t.closest("[data-cat]");if(tab){S.cat=tab.dataset.cat;renderTabs();renderSvc();return;}
  var pk=t.closest("[data-pick]");if(pk){S.svc=S.services.filter(function(x){return x.id===Number(pk.dataset.pick);})[0];S.step=2;draw();return;}
  var stf=t.closest("[data-staff]");if(stf){S.staffId=stf.dataset.staff;S.step=3;draw();return;}
- var dt=t.closest("[data-date]");if(dt){S.date=dt.dataset.date;S.min=null;buildDates();loadSlots();return;}
+ if(t.closest("#wprev")){ if(S.week>0){S.week--;buildDates();} return; }
+ if(t.closest("#wnext")){ S.week++; buildDates(); return; }
+ var dt=t.closest("[data-date]");if(dt){ if(dt.classList.contains("off"))return; S.date=dt.dataset.date;S.min=null;buildDates();loadSlots();return;}
  var sl=t.closest("[data-min]");if(sl){S.min=Number(sl.dataset.min);S.step=4;draw();return;}
  if(t.closest("#mback")){S.step=Math.max(1,S.step-1);draw();return;}
  if(t.closest("#mnext")){submit();return;}
