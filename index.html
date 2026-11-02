@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className+=" js";</script>
 <title>The Gilded Room — Colour Specialists, Sheffield</title>
 <meta name="description" content="Colour-led hair salon in Sheffield. Balayage, colour correction and precision cutting. Book online, deposit secured, patch test tracked.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,70 +152,212 @@ footer li{list-style:none;margin-bottom:9px}
 .dpick.off:hover{border-color:var(--line)}
 .spin{text-align:center;color:var(--mute);padding:30px;font-size:14px}
 </style>
+<style>
+/* ===== Sorted Sites motion kit =====
+   data-rv="up|left|right|scale|fade|wipe" reveals one element when it scrolls into view.
+   data-kids="up|left|fade" on a container staggers its children instead.
+   JS adds .in (call SSMotion.scan() after rendering new content). Hidden states only apply under .js,
+   and base styles are always the finished state: animations only describe where things start from. */
+:root{--ease:cubic-bezier(.16,1,.3,1);--ease-soft:cubic-bezier(.45,0,.2,1)}
+.js [data-rv]:not(.in),.js [data-kids]:not(.in)>*{opacity:0}
+[data-rv].in,[data-kids].in>*{animation:rv-up 1.1s var(--ease) calc(var(--d,0ms) + var(--i,0)*110ms) backwards}
+[data-rv=left].in,[data-kids=left].in>*{animation-name:rv-left}
+[data-rv=right].in{animation-name:rv-right}
+[data-rv=scale].in{animation-name:rv-scale}
+[data-rv=fade].in,[data-kids=fade].in>*{animation-name:rv-fade}
+[data-rv=wipe].in{animation:rv-wipe 1.5s var(--ease) var(--d,0ms) backwards}
+[data-rv=wipe].in img{animation:rv-zoom 2s var(--ease) var(--d,0ms) backwards}
+@keyframes rv-up{from{opacity:0;transform:translateY(26px)}}
+@keyframes rv-left{from{opacity:0;transform:translateX(-22px)}}
+@keyframes rv-right{from{opacity:0;transform:translateX(22px)}}
+@keyframes rv-scale{from{opacity:0;transform:scale(.95)}}
+@keyframes rv-fade{from{opacity:0}}
+@keyframes rv-wipe{from{clip-path:inset(100% 0 0 0)}}
+@keyframes rv-zoom{from{transform:scale(1.14)}}
+.ph{overflow:hidden}
+span.eyebrow{display:inline-block}
+
+/* ===== The Gilded Room: slow and soft, no bounce ===== */
+header{transition:box-shadow .5s var(--ease-soft)}
+header.scrolled{box-shadow:0 10px 30px -22px rgba(31,26,29,.45)}
+.hprog{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--plum),var(--brass-l));transform:scaleX(0);transform-origin:0 50%}
+.bookpill,.btn-solid{position:relative;overflow:hidden;isolation:isolate;transition:background .3s}
+.bookpill::after,.btn-solid::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,transparent 25%,rgba(233,206,150,.5) 50%,transparent 75%);transform:translateX(-120%);transition:transform 1s var(--ease)}
+.bookpill:hover::after,.btn-solid:hover::after{transform:translateX(120%)}
+.btn-line{transition:background .35s,color .35s}
+.btn-line:hover{background:var(--ink);color:var(--bone)}
+/* hero: headline rises line by line, "craft." catches a brass glint, photo unveils upwards */
+.hero-h .ln{display:block;overflow:hidden;padding:0 .12em .16em;margin:0 -.12em -.16em}
+.hero-h .ln>span{display:block}
+.js .hero-eb{animation:eb-in 1.6s var(--ease) backwards}
+.js .hero-h .ln>span{animation:ln-up 1.3s var(--ease) .15s backwards}
+.js .hero-h .ln+.ln>span{animation-delay:.32s}
+.js .hero .lede{animation:rv-up 1.2s var(--ease) .6s backwards}
+.js .hero .cta-row{animation:rv-up 1.2s var(--ease) .75s backwards}
+.js .hero-img{animation:rv-wipe 1.7s var(--ease) .25s backwards}
+.js .hero-img img{animation:rv-zoom 2.4s var(--ease) .25s backwards,drift 24s ease-in-out 2.65s infinite alternate}
+.js .hero-tag{animation:rv-up 1.1s var(--ease) 1.25s backwards}
+.js .hero .btn-solid::after{animation:sheen 1.5s var(--ease-soft) 2.3s}
+.stars{font-style:normal;font-family:var(--sans);font-size:14px;letter-spacing:3px;color:var(--brass);margin-left:12px;vertical-align:5px}
+.stars i{display:inline-block;font-style:normal}
+.js .stars i{animation:star-in .7s var(--ease) calc(1.6s + var(--n)*.1s) backwards}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero h1 em.gild{background:linear-gradient(100deg,var(--plum) 40%,#c9a45c 47%,#f0d9a4 50%,#c9a45c 53%,var(--plum) 60%) 100% 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em;margin-right:-.08em}
+  .js .hero h1 em.gild{animation:gild 9s var(--ease-soft) 1.5s infinite}
+}
+@keyframes eb-in{from{opacity:0;letter-spacing:.5em}}
+@keyframes ln-up{from{transform:translateY(125%)}}
+@keyframes drift{to{transform:scale(1.07)}}
+@keyframes star-in{from{opacity:0;transform:scale(.3) rotate(-60deg)}}
+@keyframes sheen{from{transform:translateX(-120%)}to{transform:translateX(120%)}}
+@keyframes gild{0%{background-position:100% 0}20%,100%{background-position:0 0}}
+/* a band of hair shades, plum to copper to honey, drifting slowly under the hero */
+.shade{position:relative;height:5px;overflow:hidden;margin-top:80px}
+.shade+.strip{margin-top:0;border-top:0}
+.shade i{position:absolute;top:0;bottom:0;left:0;width:300%;background:linear-gradient(90deg,#4a2a42,#7a2e45,#a3412f,#c2672f,#d6904a,#e7bd7c,#c9a45c,#8c5f3d,#4a2a42,#7a2e45,#a3412f,#c2672f,#d6904a,#e7bd7c,#c9a45c,#8c5f3d,#4a2a42);animation:shade 48s linear infinite}
+.js .shade{animation:wipe-x 2s var(--ease) 1s backwards}
+@keyframes shade{to{transform:translateX(-50%)}}
+@keyframes wipe-x{from{clip-path:inset(0 100% 0 0)}}
+/* section headings: a brass rule draws itself under each one */
+.sec-head h2::after,.visit h2::after{content:"";display:block;width:64px;height:1px;margin-top:22px;background:var(--brass);transform-origin:0 50%}
+.rev-sec .sec-head h2::after{background:var(--brass-l)}
+.js .sec-head:not(.in) h2::after,.js .visit-l:not(.in) h2::after{transform:scaleX(0)}
+.sec-head.in h2::after,.visit-l.in h2::after{animation:line-in 1.4s var(--ease) calc(var(--i,0)*110ms + .45s) backwards}
+@keyframes line-in{from{transform:scaleX(0)}}
+/* the menu: the selected tab's pill slides between tabs, rows fade in one by one */
+.tabs{position:relative}
+.tab{transition:color .45s var(--ease-soft),border-color .45s}
+.tab span{position:relative;z-index:1}
+.tab.on{background:var(--paper);border-color:var(--plum)}
+.tab-ind{position:absolute;left:0;top:0;z-index:0;border-radius:100px;background:var(--plum);pointer-events:none}
+.tab-ind.go{transition:transform .6s var(--ease),width .6s var(--ease),height .6s var(--ease)}
+.price{transition:color .4s}
+.svc:hover .price{color:var(--plum)}
+.svc-book{transition:background .35s,color .35s}
+/* stylists colour in on hover, or as they cross the middle of the screen on phones */
+.sty img{transition:filter 1s var(--ease-soft),transform 1.4s var(--ease)}
+.sty:hover img{transform:scale(1.05)}
+@media (hover:none){.sty.lit img{filter:grayscale(0)}}
+.card{transition:transform .7s var(--ease),box-shadow .7s var(--ease)}
+.card:hover{transform:translateY(-5px);box-shadow:0 26px 50px -34px rgba(74,42,66,.5)}
+.post img{transition:transform 1.4s var(--ease)}
+.post:hover img{transform:scale(1.05)}
+/* visit: open-now pill and today's row, worked out from the hours table in UK time */
+.js .visit-l>.hours{opacity:1;animation:none}
+.hours tr.today td{color:var(--ink);font-weight:600}
+.hours tr.today td:first-child::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--brass);margin:0 10px 2px 0;vertical-align:middle}
+.opennow{display:inline-flex;align-items:center;gap:10px;margin:0 0 20px;padding:8px 15px;border-radius:100px;background:#e3eee7;color:var(--ok);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+.opennow i{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 0 rgba(63,125,92,.45);animation:pulse 2.4s ease-out infinite}
+.opennow.shut{background:#efe9e0;color:var(--mute)}
+.opennow.shut i{animation:none;box-shadow:none}
+@keyframes pulse{70%,100%{box-shadow:0 0 0 9px rgba(63,125,92,0)}}
+/* booking: sheet slides up, steps glide, picks register before moving on, gold leaf on confirmation */
+.modal{overflow-x:hidden}
+.scrim.on{animation:rv-fade .4s var(--ease-soft)}
+.modal.on{animation:sheet-up .6s var(--ease)}
+.scrim.out{animation:fade-out .3s var(--ease-soft) forwards}
+.modal.out{animation:sheet-down .35s var(--ease-soft) forwards}
+@media(min-width:760px){.modal.on{animation-name:modal-in}.modal.out{animation-name:modal-out}}
+.stp{position:relative;overflow:hidden}
+.stp.on{background:var(--line)}
+.stp::after{content:"";position:absolute;inset:0;background:var(--plum);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--ease)}
+.stp.on::after{transform:none}
+#mstep.fwd{animation:step-in .55s var(--ease)}
+#mstep.back{animation:step-back .55s var(--ease)}
+#mstep.fwd .opt,#mstep.back .opt{animation:opt-in .55s var(--ease) calc(var(--i,0)*45ms) backwards}
+.opt{transition:border-color .3s,background .3s,transform .3s var(--ease)}
+.opt.picked{border-color:var(--plum);background:#f7f1f5;transform:scale(.99)}
+.slots .slot{animation:opt-in .5s var(--ease) calc(var(--i,0)*28ms) backwards}
+.slot{transition:background .25s,color .25s,border-color .25s}
+.slot.sel{animation:pop .4s var(--ease)}
+.dpick{transition:background .3s,color .3s,border-color .3s}
+.done{position:relative}
+.done .tick{animation:tick-pop .7s var(--ease) .1s backwards}
+.done .tick svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.done .tick path{stroke-dasharray:21;animation:draw .55s var(--ease-soft) .5s backwards}
+.done>:not(.tick):not(.leaf){animation:opt-in .7s var(--ease) calc(.45s + var(--i,0)*90ms) backwards}
+.leaf{position:absolute;left:50%;top:50px;border-radius:1px;pointer-events:none}
+@keyframes sheet-up{from{transform:translateY(100%)}}
+@keyframes sheet-down{to{transform:translateY(100%)}}
+@keyframes modal-in{from{opacity:0;transform:translate(-50%,26px) scale(.98)}}
+@keyframes modal-out{to{opacity:0;transform:translate(-50%,16px) scale(.98)}}
+@keyframes fade-out{to{opacity:0}}
+@keyframes step-in{from{opacity:0;transform:translateX(26px)}}
+@keyframes step-back{from{opacity:0;transform:translateX(-26px)}}
+@keyframes opt-in{from{opacity:0;transform:translateY(10px)}}
+@keyframes pop{40%{transform:scale(1.08)}}
+@keyframes tick-pop{from{opacity:0;transform:scale(.4)}}
+@keyframes draw{from{stroke-dashoffset:21}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:1ms!important}
+}
+</style>
 </head>
 <body>
 <header><div class="wrap hbar">
 <a href="#top" class="mark">The Gilded Room<small>Sheffield</small></a>
 <nav class="main"><a href="#services">Services</a><a href="#team">Stylists</a><a href="#promise">Colour Care</a><a href="#journal">Journal</a><a href="#visit">Visit</a></nav>
-<button class="bookpill" data-book>Book</button></div></header>
+<button class="bookpill" data-book>Book</button></div><i class="hprog" id="hprog" aria-hidden="true"></i></header>
 <main id="top">
 <div class="hero"><div class="wrap hero-grid"><div>
-<span class="eyebrow">Colour specialists &middot; est. 2016</span>
-<h1>Colour is<br>our <em>craft.</em></h1>
+<span class="eyebrow hero-eb">Colour specialists &middot; est. 2016</span>
+<h1 class="hero-h"><span class="ln"><span>Colour is</span></span><span class="ln"><span>our <em class="gild">craft.</em></span></span></h1>
 <p class="lede">A colour-led salon in the Devonshire Quarter. Balayage, corrections and cutting that grows out properly — booked online, in about thirty seconds.</p>
 <div class="cta-row"><button class="btn-solid" data-book>Book an appointment</button><a class="btn-line" href="#services">See services</a></div>
 </div><div class="hero-img">
 <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=900" alt="Colour applied at the basin">
-<div class="hero-tag"><b>4.9</b><span>from 312 Google reviews</span></div>
+<div class="hero-tag"><b>4.9<i class="stars" aria-hidden="true"><i style="--n:0">&#9733;</i><i style="--n:1">&#9733;</i><i style="--n:2">&#9733;</i><i style="--n:3">&#9733;</i><i style="--n:4">&#9733;</i></i></b><span>from 312 Google reviews</span></div>
 </div></div></div>
-<div class="strip"><div class="wrap strip-in">
+<div class="shade" aria-hidden="true"><i></i></div>
+<div class="strip"><div class="wrap strip-in" data-kids="up">
 <div><b>Deposit</b> secured at booking</div><div><b>Patch tests</b> tracked automatically</div>
 <div><b>Three</b> stylist levels</div><div><b>Open late</b> Wed &amp; Thu</div>
 </div></div>
 <section id="services"><div class="wrap">
-<div class="sec-head"><span class="eyebrow">The menu</span><h2>Everything priced before you sit down.</h2>
+<div class="sec-head" data-kids="up"><span class="eyebrow">The menu</span><h2>Everything priced before you sit down.</h2>
 <p>Colour work needs a consultation and a patch test. Both are built into the booking, so there are no surprises on the day.</p></div>
-<div class="tabs" id="tabs"></div><div id="svcList"><div class="spin">Loading services…</div></div>
+<div class="tabs" id="tabs"></div><div id="svcList" data-kids="up"><div class="spin">Loading services…</div></div>
 </div></section>
 <section class="team-sec" id="team"><div class="wrap">
-<div class="sec-head"><span class="eyebrow">The floor</span><h2>Find the right pair of hands.</h2>
+<div class="sec-head" data-kids="up"><span class="eyebrow">The floor</span><h2>Find the right pair of hands.</h2>
 <p>Price follows experience, not the service. Pick the level that suits the job — a director for a correction, a stylist for a trim.</p></div>
-<div class="team" id="teamGrid"><div class="spin">Loading team…</div></div>
+<div class="team" id="teamGrid" data-kids="up"><div class="spin">Loading team…</div></div>
 </div></section>
 <section id="promise"><div class="wrap">
-<div class="sec-head"><span class="eyebrow">Colour care</span><h2>Two things we do differently.</h2></div>
-<div class="two">
+<div class="sec-head" data-kids="up"><span class="eyebrow">Colour care</span><h2>Two things we do differently.</h2></div>
+<div class="two" data-kids="up">
 <div class="card"><span class="num">01</span><h3>A deposit holds the chair.</h3>
 <p>A full head of balayage blocks out four hours. When someone does not turn up, that afternoon is gone and the stylist still needs paying. A deposit between £20 and £75 on colour work is taken at booking and comes straight off the bill.</p></div>
 <div class="card"><span class="num">02</span><h3>Your patch test is on file.</h3>
 <p>Colour needs a skin test at least 48 hours before, every six months. The system knows when yours was done and flags it when you book, so nobody is turned away at the door.</p></div>
 </div></div></section>
 <section id="journal" style="background:var(--paper);border-top:1px solid var(--line)"><div class="wrap">
-<div class="sec-head"><span class="eyebrow">The journal</span><h2>Notes from the chair.</h2></div>
-<div class="posts">
-<div class="post"><img src="https://images.unsplash.com/photo-1522664101602-c1e70bcc9996?auto=format&fit=crop&q=80&w=700" alt="Balayage"><span>Aftercare</span><h3>Making balayage last past week six</h3><p>Four habits that keep tone from going brassy, none of which involve buying more product.</p></div>
-<div class="post"><img src="https://images.unsplash.com/photo-1497433550656-7fb185be365e?auto=format&fit=crop&q=80&w=700" alt="Colour work"><span>Colour</span><h3>What a correction actually involves</h3><p>Why box dye takes three sittings to undo, and what we can honestly promise in one.</p></div>
-<div class="post"><img src="https://images.unsplash.com/photo-1605980625600-88b46abafa8d?auto=format&fit=crop&q=80&w=700" alt="Cutting"><span>Cutting</span><h3>Grown-out layers, and how to ask for them</h3><p>The language that gets you the shape you want rather than the one you described.</p></div>
+<div class="sec-head" data-kids="up"><span class="eyebrow">The journal</span><h2>Notes from the chair.</h2></div>
+<div class="posts" data-kids="up">
+<div class="post"><div class="ph"><img src="https://images.unsplash.com/photo-1522664101602-c1e70bcc9996?auto=format&fit=crop&q=80&w=700" alt="Balayage"></div><span>Aftercare</span><h3>Making balayage last past week six</h3><p>Four habits that keep tone from going brassy, none of which involve buying more product.</p></div>
+<div class="post"><div class="ph"><img src="https://images.unsplash.com/photo-1497433550656-7fb185be365e?auto=format&fit=crop&q=80&w=700" alt="Colour work"></div><span>Colour</span><h3>What a correction actually involves</h3><p>Why box dye takes three sittings to undo, and what we can honestly promise in one.</p></div>
+<div class="post"><div class="ph"><img src="https://images.unsplash.com/photo-1605980625600-88b46abafa8d?auto=format&fit=crop&q=80&w=700" alt="Cutting"></div><span>Cutting</span><h3>Grown-out layers, and how to ask for them</h3><p>The language that gets you the shape you want rather than the one you described.</p></div>
 </div></div></section>
 <section class="rev-sec"><div class="wrap">
-<div class="sec-head"><span class="eyebrow">Reviews</span><h2>What people say.</h2></div>
-<div class="revs">
+<div class="sec-head" data-kids="up"><span class="eyebrow">Reviews</span><h2>What people say.</h2></div>
+<div class="revs" data-kids="up">
 <div class="rev"><q>Nadia sorted a correction two other salons had turned down. Three sittings, no drama, and she told me honestly what was possible each time.</q><b>Jess H.</b><small>Colour correction &middot; Director</small></div>
 <div class="rev"><q>My balayage has never held this well. The deposit at booking is fair enough — it comes off the bill anyway, and it means the chair is actually mine.</q><b>Chloe M.</b><small>Full head balayage &middot; Senior</small></div>
 <div class="rev"><q>Priya has cut my curls for two years. First person who did not try to straighten them first to see what she was working with.</q><b>Danielle O.</b><small>Curly cutting &middot; Senior</small></div>
 </div></div></section>
-<section id="visit"><div class="wrap visit"><div>
+<section id="visit"><div class="wrap visit"><div class="visit-l" data-kids="up">
 <span class="eyebrow">Visit</span>
 <h2 style="font-size:clamp(32px,4.2vw,48px);margin:14px 0 20px">129 Devonshire Street,<br>Sheffield S3 7SB</h2>
 <p style="color:var(--mute);margin-bottom:26px">Two minutes from Devonshire Green. Street parking after 6pm, and the tram stops at West Street.</p>
-<table class="hours">
+<table class="hours"><tbody data-kids="left" style="--d:350ms">
 <tr><td>Monday</td><td>9am – 6pm</td></tr><tr><td>Tuesday</td><td>9am – 6pm</td></tr>
 <tr><td>Wednesday</td><td>9am – 8pm</td></tr><tr><td>Thursday</td><td>9am – 8pm</td></tr>
 <tr><td>Friday</td><td>9am – 6pm</td></tr><tr><td>Saturday</td><td>9am – 5pm</td></tr>
-<tr><td>Sunday</td><td>Closed</td></tr></table>
+<tr><td>Sunday</td><td>Closed</td></tr></tbody></table>
 <div class="cta-row" style="margin-top:30px"><button class="btn-solid" data-book>Book online</button><a class="btn-line" href="tel:01142724180">0114 272 4180</a></div>
 </div>
-<img src="https://images.unsplash.com/photo-1576611927626-4dace43273c7?auto=format&fit=crop&q=80&w=800" alt="Inside the salon">
+<div class="ph" data-rv="wipe"><img src="https://images.unsplash.com/photo-1576611927626-4dace43273c7?auto=format&fit=crop&q=80&w=800" alt="Inside the salon"></div>
 </div></section></main>
 <footer><div class="wrap"><div class="fgrid">
 <div><div class="mark">The Gilded Room<small>Sheffield</small></div>
@@ -228,6 +371,83 @@ footer li{list-style:none;margin-bottom:9px}
 <div class="mhead"><b id="mtitle">Book an appointment</b><button class="xbtn" id="mclose">&times;</button></div>
 <div class="mbody"><div class="steps"><div class="stp on" data-s="1"></div><div class="stp" data-s="2"></div><div class="stp" data-s="3"></div><div class="stp" data-s="4"></div></div>
 <div id="mstep"></div></div></div>
+<script>
+/* Sorted Sites motion kit: see the CSS comment at the top of the motion styles. */
+var SSMotion=(function(){
+ var RM=!!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches);
+ var io=("IntersectionObserver" in window)&&!RM?new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+ },{rootMargin:"0px 0px -10% 0px"}):null;
+ function scan(){
+  document.querySelectorAll("[data-kids]").forEach(function(el){
+   Array.prototype.forEach.call(el.children,function(c,i){c.style.setProperty("--i",Math.min(i,8));});
+  });
+  document.querySelectorAll("[data-rv]:not(.in),[data-kids]:not(.in)").forEach(function(el){
+   if(io)io.observe(el);else el.classList.add("in");
+  });
+ }
+ return {RM:RM,scan:scan};
+})();
+</script>
+<script>
+/* The Gilded Room's own motion */
+var GR=(function(){
+ var hdr=document.querySelector("header"),bar=document.getElementById("hprog"),queued=false;
+ function onScroll(){
+  if(queued)return;queued=true;
+  requestAnimationFrame(function(){
+   queued=false;var d=document.documentElement,max=d.scrollHeight-d.clientHeight,y=window.scrollY||d.scrollTop;
+   bar.style.transform="scaleX("+(max>0?Math.min(1,y/max):0)+")";
+   hdr.classList.toggle("scrolled",y>8);
+  });
+ }
+ addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+ /* open now / opens next, read from the hours table so it follows any change to the hours */
+ var tb=document.querySelector(".hours");
+ if(tb&&window.Intl){
+  var parts={};
+  new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/London",weekday:"long",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date()).forEach(function(p){parts[p.type]=p.value;});
+  var now=Number(parts.hour)*60+Number(parts.minute),rows=Array.prototype.slice.call(tb.rows),ti=-1;
+  rows.forEach(function(r,i){if(r.cells[0].textContent.trim()===parts.weekday){r.classList.add("today");ti=i;}});
+  var span=function(r){var t=r.cells[1].textContent.trim().split(/\s*[–-]\s*/);return t.length===2?t:null;};
+  var mins=function(x){var m=/(\d+)(?::(\d+))?\s*(am|pm)/i.exec(x);return m?(Number(m[1])%12+(/pm/i.test(m[3])?12:0))*60+Number(m[2]||0):null;};
+  if(ti>-1){
+   var t=span(rows[ti]),txt="",open=false;
+   if(t&&now>=mins(t[0])&&now<mins(t[1])){open=true;txt="Open now &middot; until "+t[1];}
+   else if(t&&now<mins(t[0])){txt="Closed now &middot; opens "+t[0]+" today";}
+   else{for(var k=1;k<=7;k++){var r=rows[(ti+k)%rows.length],sp=span(r);if(sp){txt="Closed now &middot; opens "+(k===1?"tomorrow":r.cells[0].textContent.trim())+" "+sp[0];break;}}}
+   if(txt){var p=document.createElement("p");p.className="opennow"+(open?"":" shut");p.innerHTML="<i></i>"+txt;tb.parentNode.insertBefore(p,tb);}
+  }
+ }
+
+ var lio=null;
+ return {
+  /* phones have no hover, so stylist photos colour in while they cross the middle of the screen */
+  colourIn:function(){
+   if(!window.matchMedia||!matchMedia("(hover: none)").matches||!("IntersectionObserver" in window))return;
+   if(!lio)lio=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle("lit",e.isIntersecting);});},{rootMargin:"-38% 0px -38% 0px"});
+   document.querySelectorAll(".sty").forEach(function(el){lio.observe(el);});
+  },
+  /* flakes of gold leaf burst from the tick when a booking is confirmed */
+  gild:function(host){
+   if(SSMotion.RM||!host||!host.animate)return;
+   var cols=["#c9a45c","#e7c98f","#a8823c","#f2e2b8","#b89048","#4a2a42"];
+   for(var i=0;i<30;i++){
+    var f=document.createElement("i"),w=4+Math.random()*6,x=(Math.random()-.5)*340,up=50+Math.random()*90,down=150+Math.random()*170,rot=(Math.random()-.5)*900;
+    f.className="leaf";f.style.width=w+"px";f.style.height=w*1.5+"px";f.style.marginLeft=-w/2+"px";f.style.background=cols[i%cols.length];
+    host.appendChild(f);
+    f.animate([
+     {transform:"translate(0,0) rotate(0deg)",opacity:0},
+     {transform:"translate("+x*.55+"px,"+(-up)+"px) rotate("+rot*.4+"deg)",opacity:1,offset:.3},
+     {transform:"translate("+x+"px,"+down+"px) rotate("+rot+"deg)",opacity:0}
+    ],{duration:1900+Math.random()*1000,delay:380+Math.random()*250,easing:"cubic-bezier(.25,.7,.35,1)",fill:"both"}).onfinish=(function(el){return function(){el.remove();};})(f);
+   }
+  }
+ };
+})();
+SSMotion.scan();
+</script>
 <script>
 var API="https://the-gilded-room-api.luke1999-turner.workers.dev/api";
 var Q=String.fromCharCode(39);
@@ -245,7 +465,16 @@ function loadData(){
  .catch(function(){$("#svcList").innerHTML="<div class=spin>Could not load services just now.</div>";});
 }
 function renderTabs(){
- $("#tabs").innerHTML=["Colour","Cutting","Treatments"].map(function(c){return "<button class="+Q+"tab"+(c===S.cat?" on":"")+""+Q+" data-cat="+Q+""+c+""+Q+">"+c+"</button>";}).join("");
+ var tb=$("#tabs"),old=tb.querySelector(".tab.on"),from=old?[old.offsetLeft,old.offsetTop,old.offsetWidth,old.offsetHeight]:null;
+ tb.innerHTML=["Colour","Cutting","Treatments"].map(function(c){return "<button class="+Q+"tab"+(c===S.cat?" on":"")+""+Q+" data-cat="+Q+""+c+""+Q+"><span>"+c+"</span></button>";}).join("")+"<i class=tab-ind></i>";
+ var ind=tb.querySelector(".tab-ind");
+ if(from){placeInd(ind,from);void ind.offsetWidth;ind.className="tab-ind go";}
+ placeInd(ind);
+}
+function placeInd(ind,r){
+ ind=ind||$(".tab-ind");if(!ind)return;
+ if(!r){var on=$("#tabs .tab.on");if(!on)return;r=[on.offsetLeft,on.offsetTop,on.offsetWidth,on.offsetHeight];}
+ ind.style.transform="translate("+r[0]+"px,"+r[1]+"px)";ind.style.width=r[2]+"px";ind.style.height=r[3]+"px";
 }
 function renderSvc(){
  var list=S.services.filter(function(s){return catOf(s)===S.cat;});
@@ -255,20 +484,26 @@ function renderSvc(){
   if(s.requires_patch_test)chips+="<span class="+Q+"chip patch"+Q+">patch test needed</span>";
   return "<div class=svc><div><h3>"+esc(s.name)+"</h3><p>"+esc(s.description||"")+"</p><div class=svc-meta>"+chips+"</div></div><div class=svc-right><span class=from>from</span><span class=price>"+gbp(s.price_pence)+"</span><br><button class=svc-book data-svc="+Q+""+s.id+""+Q+">Book</button></div></div>";
  }).join("");
+ SSMotion.scan();
 }
 function renderTeam(){
  var imgs=["photo-1515848797093-effe16ccfabb","photo-1522337360788-8b13dee7a37e","photo-1533661338746-e4e47d30dfd8","photo-1558265246-e84a824bcd83"];
  $("#teamGrid").innerHTML=S.stylists.map(function(b,i){
   var sur=b.surcharge_pence>0?" &middot; +"+gbp(b.surcharge_pence):"";
-  return "<div class=sty><img src="+Q+"https://images.unsplash.com/"+imgs[i%4]+"?auto=format&fit=crop&q=80&w=600"+Q+" alt="+Q+""+esc(b.name)+""+Q+"><h3>"+esc(b.name)+"</h3><span class=lvl>"+esc(b.level||"Stylist")+sur+"</span><p>"+esc(b.bio||"")+"</p><div class=spec>"+esc(b.specialties||"")+"</div></div>";
+  return "<div class=sty><div class=ph><img src="+Q+"https://images.unsplash.com/"+imgs[i%4]+"?auto=format&fit=crop&q=80&w=600"+Q+" alt="+Q+""+esc(b.name)+""+Q+"></div><h3>"+esc(b.name)+"</h3><span class=lvl>"+esc(b.level||"Stylist")+sur+"</span><p>"+esc(b.bio||"")+"</p><div class=spec>"+esc(b.specialties||"")+"</div></div>";
  }).join("");
+ SSMotion.scan();GR.colourIn();
 }
 function openBook(svcId){
+ clearTimeout(S.closing);S.busy=false;S.prev=0;
  S.step=1;S.svc=null;S.staffId="any";S.date=null;S.min=null;
  if(svcId){var f=S.services.filter(function(x){return x.id===Number(svcId);})[0];if(f){S.svc=f;S.step=2;}}
  $("#scrim").className="scrim on";$("#modal").className="modal on";document.body.style.overflow="hidden";draw();
 }
-function closeBook(){$("#scrim").className="scrim";$("#modal").className="modal";document.body.style.overflow="";}
+function closeBook(){
+ $("#scrim").className="scrim on out";$("#modal").className="modal on out";document.body.style.overflow="";
+ S.closing=setTimeout(function(){$("#scrim").className="scrim";$("#modal").className="modal";},SSMotion.RM?0:340);
+}
 function marks(){document.querySelectorAll(".stp").forEach(function(el){el.className="stp"+(Number(el.dataset.s)<=S.step?" on":"");});}
 function draw(){
  marks();var h="";
@@ -300,7 +535,9 @@ function draw(){
  if(S.step>1)foot+="<button class=back id=mback>Back</button>";
  if(S.step===4)foot+="<button class=next id=mnext>Confirm booking</button>";
  h+="<div class=mfoot>"+foot+"</div>";
- $("#mstep").innerHTML=h;
+ var ms=$("#mstep"),dir=S.step<S.prev?"back":"fwd";S.prev=S.step;
+ ms.innerHTML=h;ms.className="";void ms.offsetWidth;ms.className=dir;
+ ms.querySelectorAll(".opt").forEach(function(o,i){o.style.setProperty("--i",Math.min(i,10));});
  if(S.step===3)buildDates();
 }
 function isoOf(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
@@ -341,7 +578,7 @@ function loadSlots(){
  fetch(API+"/availability?"+p).then(function(r){return r.json();}).then(function(j){
   var slots=j.slots||[];
   if(!slots.length){$("#slots").innerHTML="<div class=spin>Nothing free that day. Try another.</div>";return;}
-  $("#slots").innerHTML="<div class=slots>"+slots.map(function(m){var v=(typeof m==="object")?(m.min!=null?m.min:m.start):m;var lb=(m&&m.label)?m.label:fmtMin(v);return "<button class="+Q+"slot"+(S.min===v?" sel":"")+""+Q+" data-min="+Q+""+v+""+Q+">"+lb+"</button>";}).join("")+"</div>";
+  $("#slots").innerHTML="<div class=slots>"+slots.map(function(m,i){var v=(typeof m==="object")?(m.min!=null?m.min:m.start):m;var lb=(m&&m.label)?m.label:fmtMin(v);return "<button class="+Q+"slot"+(S.min===v?" sel":"")+""+Q+" style="+Q+"--i:"+Math.min(i,16)+""+Q+" data-min="+Q+""+v+""+Q+">"+lb+"</button>";}).join("")+"</div>";
  }).catch(function(){$("#slots").innerHTML="<div class=spin>Could not load times.</div>";});
 }
 function submit(){
@@ -353,24 +590,30 @@ function submit(){
  .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||"Booking failed.");return j;});})
  .then(function(j){
   $("#mtitle").textContent="You are booked in";
-  $("#mstep").innerHTML="<div class=done><div class=tick>&#10003;</div><h3>See you soon.</h3><p style="+Q+"color:var(--mute)"+Q+">A confirmation is on its way to "+esc(e)+", and we will text a reminder the day before.</p><div class=refbox>"+esc(j.ref||"BOOKED")+"</div><p style="+Q+"color:var(--mute);font-size:14px"+Q+">Keep this reference if you need to move it.</p><div class=mfoot><button class=next id=mdone>Done</button></div></div>";
+  $("#mstep").innerHTML="<div class=done><div class=tick><svg viewBox="+Q+"0 0 30 30"+Q+" aria-hidden=true><path d="+Q+"M8 15.5l4.5 4.5 9.5-10"+Q+"/></svg></div><h3>See you soon.</h3><p style="+Q+"color:var(--mute)"+Q+">A confirmation is on its way to "+esc(e)+", and we will text a reminder the day before.</p><div class=refbox>"+esc(j.ref||"BOOKED")+"</div><p style="+Q+"color:var(--mute);font-size:14px"+Q+">Keep this reference if you need to move it.</p><div class=mfoot><button class=next id=mdone>Done</button></div></div>";
+  var dn=$("#mstep .done");Array.prototype.forEach.call(dn.children,function(c,i){c.style.setProperty("--i",i);});GR.gild(dn);
  }).catch(function(x){err.textContent=x.message;btn.textContent="Confirm booking";btn.disabled=false;});
 }
+/* mark the pick, let it register for a moment, then move to the next step */
+function go(el,step,cls){S.busy=true;el.classList.add(cls||"picked");setTimeout(function(){S.busy=false;S.step=step;draw();},SSMotion.RM?0:230);}
 document.addEventListener("click",function(ev){
  var t=ev.target;
+ if(S.busy)return;
  if(t.closest("[data-book]")){openBook(null);return;}
  var sb=t.closest("[data-svc]");if(sb){openBook(sb.dataset.svc);return;}
  var tab=t.closest("[data-cat]");if(tab){S.cat=tab.dataset.cat;renderTabs();renderSvc();return;}
- var pk=t.closest("[data-pick]");if(pk){S.svc=S.services.filter(function(x){return x.id===Number(pk.dataset.pick);})[0];S.step=2;draw();return;}
- var stf=t.closest("[data-staff]");if(stf){S.staffId=stf.dataset.staff;S.step=3;draw();return;}
+ var pk=t.closest("[data-pick]");if(pk){S.svc=S.services.filter(function(x){return x.id===Number(pk.dataset.pick);})[0];go(pk,2);return;}
+ var stf=t.closest("[data-staff]");if(stf){S.staffId=stf.dataset.staff;go(stf,3);return;}
  if(t.closest("#wprev")){ if(S.week>0){S.week--;buildDates();} return; }
  if(t.closest("#wnext")){ S.week++; buildDates(); return; }
  var dt=t.closest("[data-date]");if(dt){ if(dt.classList.contains("off"))return; S.date=dt.dataset.date;S.min=null;buildDates();loadSlots();return;}
- var sl=t.closest("[data-min]");if(sl){S.min=Number(sl.dataset.min);S.step=4;draw();return;}
+ var sl=t.closest("[data-min]");if(sl){S.min=Number(sl.dataset.min);document.querySelectorAll(".slot.sel").forEach(function(x){x.classList.remove("sel");});go(sl,4,"sel");return;}
  if(t.closest("#mback")){S.step=Math.max(1,S.step-1);draw();return;}
  if(t.closest("#mnext")){submit();return;}
  if(t.closest("#mdone")||t.closest("#mclose")||t.id==="scrim"){closeBook();return;}
 });
+addEventListener("resize",function(){placeInd();});
+if(document.fonts)document.fonts.ready.then(function(){placeInd();});
 loadData();
 </script>
 </body>
