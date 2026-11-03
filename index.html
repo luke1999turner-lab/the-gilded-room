@@ -479,7 +479,7 @@ var GR=(function(){
  function hero(){
   var h1=document.querySelector(".hero-h");
   if(!h1||SSMotion.RM)return;
-  h1.setAttribute("aria-label",h1.textContent.replace(/\s+/g," ").trim());
+  h1.setAttribute("aria-label",Array.prototype.map.call(h1.querySelectorAll(".ln"),function(l){return l.textContent.trim();}).join(" ").replace(/\s+/g," ")||h1.textContent.trim());
   /* line one, split into words and letters so each letter can float up on its own */
   var one=h1.querySelector(".ln>span"),k=0;
   if(one){
